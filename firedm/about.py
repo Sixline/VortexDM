@@ -22,8 +22,8 @@ Conditions and usage restrictions:
 ------------------------------------------------------------------------
 
 your feedback is most welcomed on:
-https://github.com/firedm/FireDM
-email: info.pyidm@gmail.com
+https://github.com/Sixline/FireDM
+email: info.pyidm@gmail.com (Unknown if valid, original creator deleted project)
 
 Author,
 Mahmoud Elshahat
