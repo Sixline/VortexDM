@@ -39,14 +39,14 @@ setuptools.setup(
     description="download manager",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/firedm/FireDM ",
+    url="https://github.com/Sixline/FireDM ",
     packages=setuptools.find_packages(),
     keywords="internet download manager youtube hls pycurl curl youtube-dl tkinter",
     project_urls={
-        'Source': 'https://github.com/firedm/FireDM',
-        'Tracker': 'https://github.com/firedm/FireDM/issues',
-        'Releases': 'https://github.com/firedm/FireDM/releases',
-        'Screenshots': 'https://github.com/firedm/FireDM/issues/13#issuecomment-689337428'
+        'Source': 'https://github.com/Sixline/FireDM',
+        'Tracker': 'https://github.com/Sixline/FireDM/issues',
+        'Releases': 'https://github.com/Sixline/FireDM/releases',
+#        'Screenshots': 'https://github.com/firedm/FireDM/issues/13#issuecomment-689337428'
     },
     install_requires=requirements,
     entry_points={
