@@ -120,7 +120,7 @@ ffmpeg_path = os.path.join(current_folder, 'ffmpeg.exe')
 if not os.path.isfile(os.path.join(app_folder, 'ffmpeg.exe')):
     if not os.path.isfile(ffmpeg_path):
         # download from github
-        ffmpeg_url = 'https://github.com/firedm/FireDM/releases/download/extra/ffmpeg_32bit.exe'
+        ffmpeg_url = 'https://github.com/Sixline/FireDM/releases/download/extra/ffmpeg_32bit.exe'
         simpledownload(ffmpeg_url, fp=ffmpeg_path)
     shutil.copy(ffmpeg_path, os.path.join(app_folder, 'ffmpeg.exe'))
 
