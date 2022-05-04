@@ -48,7 +48,7 @@ def pars_args(arguments):
     description = """FireDM is an open source Download Manager with multi-connections, high speed 
         engine, it can download general files and video files from youtube and tons of other streaming websites. 
         Developed in Python, based on "LibCurl", "youtube_dl", and "Tkinter". 
-        Source: https://github.com/firedm/FireDM """
+        Source: https://github.com/Sixline/FireDM """
 
     def iterable(txt):
         # process iterable in arguments, e.g. tuple or list,
@@ -72,7 +72,7 @@ def pars_args(arguments):
         description=description,
         epilog='copyright: (c) 2019-2021 FireDM. license: GNU LGPLv3, see LICENSE file for more details. '
                'Author: Mahmoud Elshahat, '
-               'Isuues: https://github.com/firedm/FireDM/issues',
+               'Isuues: https://github.com/Sixline/FireDM/issues',
         usage='\n'
               '%(prog)s [OPTIONS] URL1 URL2 URL3 \n'
               'example: %(prog)s "https://somesite.com/somevideo" "https://somesite.com/anothervideo"\n'
