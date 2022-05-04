@@ -9,7 +9,7 @@ Homepage: https://github.com/Sixline/FireDM
 
 ![GitHub issues](https://img.shields.io/github/issues-raw/Sixline/firedm?color=blue) - ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Sixline/firedm?color=blue)
 
-![logo](https://github.com/Sixline/FireDM/blob/master/icons/48x48.png)
+![Logo](https://github.com/Sixline/FireDM/blob/main/icons/48x48.png?raw=true)
 FireDM is a python open source (Internet Download Manager) 
 with multi-connections, high speed engine, 
 it downloads general files and videos from youtube and tons of other streaming websites . <br>
