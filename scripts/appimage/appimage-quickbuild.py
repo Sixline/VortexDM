@@ -41,7 +41,7 @@ version = get_pkg_version(os.path.join(project_folder, 'firedm'))
 # check for app folder existence, otherwise download latest version from github
 if not os.path.isdir(AppDir):
     print('downloading ', APP_NAME)
-    data = simpledownload('https://api.github.com/repos/firedm/firedm/releases/latest').decode("utf-8")
+    data = simpledownload('https://api.github.com/repos/Sixline/firedm/releases/latest').decode("utf-8")
     # "browser_download_url": "https://github.com/firedm/FireDM/releases/download/2021.2.9/FireDM-2021.2.9-x86_64.AppImage"
     data = json.loads(data)
     assets = data['assets']
@@ -72,7 +72,7 @@ if not os.path.isdir(AppDir):
 
     else:
         print('Failed to download latest version, download manually '
-              'from https://github.com/firedm/FireDM/releases/latest')
+              'from https://github.com/Sixline/FireDM/releases/latest')
         exit(1)
 
 site_pkgs_folder = f'{AppDir}/usr/lib/python3.6/site-packages'
