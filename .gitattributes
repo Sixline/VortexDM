@@ -1,0 +1,13 @@
+# all text files
+*           text eol=lf
+
+# avoid images
+*.jpg		-text
+*.png		-text
+
+*.vcproj	text eol=crlf
+*.txt       text eol=crlf
+
+# Batch files (bat,btm,cmd) must be run with CRLF line endings.
+*.bat       text eol=crlf
+

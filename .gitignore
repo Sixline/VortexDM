@@ -1,0 +1,37 @@
+# ignore all files and directories
+*
+
+# include only the following
+!docs/
+!docs/*
+!firedm/
+!firedm/*.py
+!ChangeLog.txt
+!contributors.md
+!LICENSE
+!firedm.py
+!README.md
+!requirements.txt
+!setup.py
+!todo.md
+!.gitignore
+!.gitattributes
+!scripts/
+!scripts/utils.py
+!scripts/updatepkg.py
+!scripts/exe_build/
+!scripts/exe_build/exe-fullbuild.py
+!scripts/exe_build/exe-quickbuild.py
+!scripts/appimage/
+!scripts/appimage/appimage-fullbuild.sh
+!scripts/appimage/appimage-quickbuild.py
+!scripts/appimage/run.py
+!icons/
+!icons/48x48.png
+!icons/48_32_16.ico
+!.github/
+!.github/workflows/
+!.github/workflows/*
+
+
+
