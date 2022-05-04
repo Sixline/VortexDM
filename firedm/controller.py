@@ -1026,10 +1026,10 @@ class Controller:
         # ends with 86 for 32 bit and 64 for 64 bit i.e. Win7-64: AMD64 and Vista-32: x86
         if platform.machine().endswith('64'):
             # 64 bit link
-            url = 'https://github.com/firedm/FireDM/releases/download/extra/ffmpeg_64bit.exe'
+            url = 'https://github.com/Sixline/FireDM/releases/download/extra/ffmpeg_64bit.exe'
         else:
             # 32 bit link
-            url = 'https://github.com/firedm/FireDM/releases/download/extra/ffmpeg_32bit.exe'
+            url = 'https://github.com/Sixline/FireDM/releases/download/extra/ffmpeg_32bit.exe'
 
         log('downloading: ', url)
 
@@ -1174,7 +1174,7 @@ class Controller:
                 log('getting FireDM changelog ....')
 
                 # download change log file
-                url = 'https://github.com/firedm/FireDM/raw/master/ChangeLog.txt'
+                url = 'https://github.com/Sixline/FireDM/raw/master/ChangeLog.txt'
                 changelog = download(url, verbose=False)
 
                 # verify server didn't send html page
