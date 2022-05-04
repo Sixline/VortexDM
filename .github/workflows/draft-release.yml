@@ -10,7 +10,7 @@
 #      this action will be triggered everytime a version.py file changed
 
 
-name: draft-relese
+name: draft-release
 
 # Controls when the action will run.
 on:
