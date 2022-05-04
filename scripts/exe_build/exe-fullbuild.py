@@ -133,7 +133,7 @@ subprocess.run(cmd, shell=True)
 for fname in (cmd_target_name, gui_target_name):
     fp = os.path.join(app_folder, fname)
     info = {
-        'Comments': 'https://github.com/firedm/FireDM',
+        'Comments': 'https://github.com/Sixline/FireDM',
         'CompanyName': 'FireDM',
         'FileDescription': 'FireDM download manager',
         'FileVersion': version,
