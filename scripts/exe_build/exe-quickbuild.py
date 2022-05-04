@@ -36,7 +36,7 @@ app_folder = os.path.join(build_folder, APP_NAME)
 # check for app folder existence, otherwise download latest version from github
 if not os.path.isdir(app_folder):
     print('downloading ', APP_NAME)
-    data = simpledownload('https://api.github.com/repos/firedm/firedm/releases/latest').decode("utf-8")
+    data = simpledownload('https://api.github.com/repos/Sixline/FireDM/releases/latest').decode("utf-8")
     # example: "browser_download_url": "https://github.com/firedm/FireDM/releases/download/2021.2.9/FireDM_2021.2.9.zip"
     data = json.loads(data)
     assets = data['assets']
@@ -61,7 +61,7 @@ if not os.path.isdir(app_folder):
 
     else:
         print('Failed to download latest version, download manually '
-              'from https://github.com/firedm/FireDM/releases/latest')
+              'from https://github.com/Sixline/FireDM/releases/latest')
         exit(1)
 
 lib_folder = os.path.join(app_folder, 'lib')
@@ -91,7 +91,7 @@ subprocess.run(cmd, shell=True)
 for fname in ('firedm.exe', 'FireDM-GUI.exe'):
     fp = os.path.join(app_folder, fname)
     info = {
-        'Comments': 'https://github.com/firedm/FireDM',
+        'Comments': 'https://github.com/Sixline/FireDM',
         'CompanyName': 'FireDM',
         'FileDescription': 'FireDM download manager',
         'FileVersion': version,
