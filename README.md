@@ -1,23 +1,21 @@
-Homepage: https://github.com/firedm/FireDM
+Old Homepage (Project deleted for unknown reasons): https://github.com/firedm/FireDM
+
+Homepage: https://github.com/Sixline/FireDM
 
 [![Downloads](https://static.pepy.tech/personalized-badge/pyidm?period=total&units=international_system&left_color=grey&right_color=blue&left_text=PyIDM%20Downloads%20(pypi))](https://pepy.tech/project/pyidm)
 [![Downloads](https://static.pepy.tech/personalized-badge/firedm?period=total&units=international_system&left_color=grey&right_color=blue&left_text=FireDM%20Downloads%20(pypi))](https://pepy.tech/project/firedm)
 
-![GitHub All Releases](https://img.shields.io/github/downloads/firedm/firedm/total?color=blue&label=GitHub%20Releases)
+![GitHub All Releases](https://img.shields.io/github/downloads/Sixline/firedm/total?color=blue&label=GitHub%20Releases)
 
-![GitHub issues](https://img.shields.io/github/issues-raw/firedm/firedm?color=blue) - ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/firedm/firedm?color=blue)
+![GitHub issues](https://img.shields.io/github/issues-raw/Sixline/firedm?color=blue) - ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Sixline/firedm?color=blue)
 
-![logo](https://github.com/firedm/FireDM/blob/master/icons/48x48.png)
+![logo](https://github.com/Sixline/FireDM/blob/master/icons/48x48.png)
 FireDM is a python open source (Internet Download Manager) 
 with multi-connections, high speed engine, 
 it downloads general files and videos from youtube and tons of other streaming websites . <br>
 Developed in Python, based on "LibCurl", and "youtube_dl".
 
-[**Download Latest version!!**](https://github.com/firedm/FireDM/releases/latest)
-
-![screenshot](https://user-images.githubusercontent.com/58998813/134947539-0bec3cf4-fd02-47d4-b9be-e370c645d648.png)
-
-[more screenshots ...](https://github.com/firedm/FireDM/issues/13#issuecomment-928043472)
+[**Download Latest version!!**](https://github.com/Sixline/FireDM/releases/latest)
 
 ---
 **Features**:
@@ -51,17 +49,17 @@ Developed in Python, based on "LibCurl", and "youtube_dl".
 # How to use FireDM:
 running in command line: show help by typing `firedm -h`  <br>
 
-running GUI: Refer to user guide at https://github.com/firedm/FireDM/blob/master/docs/user_guide.md
+running GUI: Refer to user guide at https://github.com/Sixline/FireDM/blob/master/docs/user_guide.md
 
 ----------------------
 # Portable FireDM versions:
   
 Run FireDM without any installation (recommended) 
- - **Windows portable version** ([Download!](https://github.com/firedm/FireDM/releases/latest)):  
+ - **Windows portable version** ([Download!](https://github.com/Sixline/FireDM/releases/latest)):  
    available in .zip format.  
    unzip, and run from FireDM.exe, no installation required.
    
- - **Linux portable version** ([Download!](https://github.com/firedm/FireDM/releases/latest)):   
+ - **Linux portable version** ([Download!](https://github.com/Sixline/FireDM/releases/latest)):   
    available in .AppImage format.  
    download file, then mark it as executable, and run it, no installation required,
    tested on ubuntu, mint, and manjaro.<br>
@@ -146,7 +144,7 @@ cp ./FireDM/icons/48x48.png ~/.local/share/icons/hicolor/48x48/apps/firedm.png
 
 ---
 
-# Known Issues:
+# Known Issues (Links no longer valid):
 - Linux X-server will raise an error if some fonts are missing especially emoji fonts, for more info refer to [issue #200](https://github.com/firedm/FireDM/issues/200).
 
 
@@ -161,7 +159,7 @@ refer to [issue #113](https://github.com/firedm/FireDM/issues/113)
 - tkinter
 - [ffmpeg](https://www.ffmpeg.org/) : for merging audio with youtube DASH videos "it will be installed automatically on windows"
 - Fonts: (Linux X-server will raise an error if some fonts are missing especially emoji fonts, below are the 
-recommended fonts to be installed, for more info refer to [issue #200](https://github.com/firedm/FireDM/issues/200).)
+recommended fonts to be installed, for more info refer to [issue #200](https://github.com/firedm/FireDM/issues/200).) (Link no longer valid)
 
     ```
     ttf-linux-libertine 
@@ -209,12 +207,12 @@ download managers, it is just a "hopefully useful" addition.
 
 # How to contribute to this project:
 1- by testing the application and opening
-[new issue](https://github.com/firedm/FireDM/issues/new) for bug
+[new issue](https://github.com/Sixline/FireDM/issues/new) for bug
 reporting, feature request, or suggestions.  
 2- check
-[developer guidelines](https://github.com/firedm/FireDM/blob/master/docs/developer_guide.md).  
+[developer guidelines](https://github.com/Sixline/FireDM/blob/master/docs/developer_guide.md).  
 3- check
-[todo list](https://github.com/firedm/FireDM/blob/master/todo.md).  
+[todo list](https://github.com/Sixline/FireDM/blob/master/todo.md).  
 4- check open issues, see if you can help.  
 5- fork this repo and pull request
 
@@ -228,20 +226,20 @@ reporting, feature request, or suggestions.
 - [hackermilk](http://hackermilk.info/2020/01/an_open_source_alternative_to_internet.html)
 
   *help edit this list by writing a comment in
-  [this issue](https://github.com/firedm/FireDM/issues/136)
+  [this issue](https://github.com/firedm/FireDM/issues/136) (Link no longer valid)
 ---
 
 # contributors:
 Please check
-[contributors.md](https://github.com/firedm/FireDM/blob/master/contributors.md)
+[contributors.md](https://github.com/Sixline/FireDM/blob/master/contributors.md)
 for a list of contributors
 
 ---
 
 # Feedback:
 your feedback is most welcomed by filling a
-[new issue](https://github.com/firedm/FireDM/issues/new)  
-or email to: info.pyidm@gmail.com <br>
+[new issue](https://github.com/Sixline/FireDM/issues/new)  
+or email to: info.pyidm@gmail.com <br> (Unknown if valid, original creator deleted project)
 
 
 ---
