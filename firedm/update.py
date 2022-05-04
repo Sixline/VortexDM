@@ -50,7 +50,7 @@ def check_for_new_version():
     try:
         if config.FROZEN:
             # use github API to get latest version
-            url = 'https://api.github.com/repos/firedm/firedm/releases/latest'
+            url = 'https://api.github.com/repos/Sixline/firedm/releases/latest'
             contents = download(url, verbose=False)
 
             if contents:
@@ -65,7 +65,7 @@ def check_for_new_version():
             log('Found new version:', str(latest_version))
 
             # download change log file
-            url = 'https://github.com/firedm/FireDM/raw/master/ChangeLog.txt'
+            url = 'https://github.com/Sixline/FireDM/raw/master/ChangeLog.txt'
             changelog = download(url, verbose=False)
     except Exception as e:
         log('check_for_new_version()> error:', e)
