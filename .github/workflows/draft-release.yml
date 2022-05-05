@@ -44,11 +44,11 @@ jobs:
           cd ./scripts/exe_build
           python3 ./exe-quickbuild.py
 
-      - name: create linux binary "AppImage"
-        run: |
-          # linux appimage file
-          cd ./scripts/appimage
-          python3 ./appimage-quickbuild.py
+      #- name: create linux binary "AppImage"
+      #  run: |
+      #    # linux appimage file
+      #    cd ./scripts/appimage
+      #    python3 ./appimage-quickbuild.py
 
       - name: get version name
         run: |
@@ -64,11 +64,11 @@ jobs:
           - The binary version ".exe" prepared by "cx_freeze" on python 3.8, windows8x32bit
           ---
 
-          **Linux: [.AppImage file]**
-          - AppImage file, portable, no installation needed, download and make file executable by right clicking the file>Properties>Permissions>Allow executing file as a program, or from terminal by `chmod +x FireDM_xxx.AppImage`
-          - ffmpeg is not included in this image and must be available on your system, to install ffmpeg you can `sudo apt install ffmpeg` on debian based or ` sudo pacman -S ffmpeg` on Arch based
-          - The binary version ".AppImage" is prepared by "appimage-builder" on linuxmint, and tested on ubuntu 20.04 and Manjaro kde
-          ---
+        #  **Linux: [.AppImage file]**
+        #  - AppImage file, portable, no installation needed, download and make file executable by right clicking the file>Properties>Permissions>Allow executing file as a program, or from terminal by `chmod +x FireDM_xxx.AppImage`
+        #  - ffmpeg is not included in this image and must be available on your system, to install ffmpeg you can `sudo apt install ffmpeg` on debian based or ` sudo pacman -S ffmpeg` on Arch based
+        #  - The binary version ".AppImage" is prepared by "appimage-builder" on linuxmint, and tested on ubuntu 20.04 and Manjaro kde
+        #  ---
 
           **changelog:**
           '  > ./release-body.txt
@@ -95,4 +95,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           releaseId: ${{ steps.create_release.outputs.id }}
-          args: './scripts/appimage/FireDM*.AppImage ./scripts/exe_build/FireDM*.zip'
+          args: './scripts/exe_build/FireDM*.zip'
+         # args: './scripts/appimage/FireDM*.AppImage ./scripts/exe_build/FireDM*.zip'
