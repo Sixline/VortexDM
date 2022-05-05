@@ -64,16 +64,31 @@ jobs:
           - The binary version ".exe" prepared by "cx_freeze" on python 3.8, windows8x32bit
           ---
 
+          **changelog:**
+          '  > ./release-body.txt
+
+          sed 's/\r$//' ./ChangeLog.txt | sed -e '/^$/,$d' >> ./release-body.txt
+
+     # - name: create release body
+     #   run: |
+     #     echo '# Release info:
+     #     **Windows: [.zip file]**
+     #     - Portable version for windows 32bit and 64bit, no installation needed, just extract to any folder and double click FireDM-GUI.exe file.
+     #     - if you need to run firedm in command line mode you can run FireDM.exe from command line terminal, to show available options type command `firedm --help` .
+     #     - ffmpeg.exe included, you can download latest version [here](https://github.com/yt-dlp/FFmpeg-Builds/releases)
+     #     - The binary version ".exe" prepared by "cx_freeze" on python 3.8, windows8x32bit
+     #     ---
+
         #  **Linux: [.AppImage file]**
         #  - AppImage file, portable, no installation needed, download and make file executable by right clicking the file>Properties>Permissions>Allow executing file as a program, or from terminal by `chmod +x FireDM_xxx.AppImage`
         #  - ffmpeg is not included in this image and must be available on your system, to install ffmpeg you can `sudo apt install ffmpeg` on debian based or ` sudo pacman -S ffmpeg` on Arch based
         #  - The binary version ".AppImage" is prepared by "appimage-builder" on linuxmint, and tested on ubuntu 20.04 and Manjaro kde
         #  ---
 
-          **changelog:**
-          '  > ./release-body.txt
+      #    **changelog:**
+      #    '  > ./release-body.txt
 
-          sed 's/\r$//' ./ChangeLog.txt | sed -e '/^$/,$d' >> ./release-body.txt
+     #     sed 's/\r$//' ./ChangeLog.txt | sed -e '/^$/,$d' >> ./release-body.txt
 
 
       - name: Create Release
