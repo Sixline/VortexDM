@@ -1,3 +1,11 @@
+# The original creator removed the project repository from Github but left it on PyPI. The latest version they published there, 2022.4.14, I believe was purposely sabotaged to not work and anybody who accepted the update in FireDM would be left with the broken version. If you want to install from PyPI install 2022.2.5 and don't update. https://pypi.org/project/FireDM/2022.2.5
+
+# I will work on getting builds posted here and a separate PyPI project. I might just rename it something else and we can carry on where the original left off.
+
+https://www.reddit.com/r/Python/comments/u44t8y/firedm_repos_no_longer_exist/
+
+https://www.reddit.com/r/freesoftware/comments/u8zwaz/firedm_repos_no_longer_exist/
+
 Old Homepage (Project deleted for unknown reasons): https://github.com/firedm/FireDM
 
 Homepage: https://github.com/Sixline/FireDM
