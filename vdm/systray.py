@@ -1,10 +1,10 @@
 """
-    FireDM
+    Vortex Download Manager (VDM)
 
-    multi-connections internet download manager, based on "pyCuRL/curl", and "youtube_dl""
-
+    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
-    :license: GNU LGPLv3, see LICENSE for more details.
+    :license: GNU GPLv3, see LICENSE.md for more details.
 
     Module description:
         system tray icon based on GTK and pystray, tested on windows and Manjaro using GTK 3.0
@@ -67,7 +67,7 @@ class SysTray:
                 from gi.repository import Gtk
                 self.Gtk = Gtk
 
-                # delete previous icon file (it might contains an icon file for old firedm versions)
+                # delete previous icon file (it might contains an icon file for old VDM versions)
                 delete_file(self.tray_icon_path)
 
                 # save file to settings folder

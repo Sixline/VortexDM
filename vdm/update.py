@@ -1,10 +1,10 @@
 """
-    FireDM
+    Vortex Download Manager (VDM)
 
-    multi-connections internet download manager, based on "LibCurl", and "youtube_dl".
-
+    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
-    :license: GNU LGPLv3, see LICENSE for more details.
+    :license: GNU GPLv3, see LICENSE.md for more details.
 """
 
 # todo: change docstring to google format and clean unused code
@@ -37,7 +37,7 @@ def open_update_link():
 
 def check_for_new_version():
     """
-    Check for new FireDM version
+    Check for new VDM version
 
     Return:
         changelog text or None
@@ -50,7 +50,7 @@ def check_for_new_version():
     try:
         if config.FROZEN:
             # use github API to get latest version
-            url = 'https://api.github.com/repos/Sixline/firedm/releases/latest'
+            url = 'https://api.github.com/repos/Sixline/VDM/releases/latest'
             contents = download(url, verbose=False)
 
             if contents:
@@ -59,13 +59,13 @@ def check_for_new_version():
 
         else:
             # check pypi version
-            latest_version, _ = get_pkg_latest_version('firedm')
+            latest_version, _ = get_pkg_latest_version('vdm')
 
         if parse_version(latest_version) > parse_version(config.APP_VERSION):
             log('Found new version:', str(latest_version))
 
             # download change log file
-            url = 'https://github.com/Sixline/FireDM/raw/master/ChangeLog.txt'
+            url = 'https://github.com/Sixline/VDM/raw/master/ChangeLog.txt'
             changelog = download(url, verbose=False)
     except Exception as e:
         log('check_for_new_version()> error:', e)
@@ -89,7 +89,7 @@ def get_pkg_latest_version(pkg, fetch_url=True):
                     </item>
 
     2- json, (slower and bigger file), send all info for the package
-        url pattern: f'https://pypi.org/pypi/{pkg}/json' e.g.    https://pypi.org/pypi/firedm/json
+        url pattern: f'https://pypi.org/pypi/{pkg}/json' e.g.    https://pypi.org/pypi/vdm/json
         received json will be a dict with:
         keys = 'info', 'last_serial', 'releases', 'urls'
         releases = {'release_version': [{dict for wheel file}, {dict for tar file}], ...}

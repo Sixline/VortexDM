@@ -1,10 +1,10 @@
 """
-    FireDM
+    Vortex Download Manager (VDM)
 
-    multi-connections internet download manager, based on "LibCurl", and "youtube_dl".
-
+    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
-    :license: GNU LGPLv3, see LICENSE for more details.
+    :license: GNU GPLv3, see LICENSE.md for more details.
 """
 
 from queue import Queue
@@ -29,15 +29,15 @@ settings_keys = [
 
 # ----------------------------------------------------------------------------------------General ----------------------
 # CONSTANTS
-APP_NAME = 'FireDM'
+APP_NAME = 'Vortex Download Manager'
 APP_VERSION = __version__
-APP_TITLE = f'{APP_NAME} version {APP_VERSION} .. an open source download manager'
+APP_TITLE = f'{APP_NAME} version {APP_VERSION} .. an open-source download manager'
 
 # minimum segment size used in auto-segmentation process, refer to brain.py>thread_manager.
 SEGMENT_SIZE = 1024 * 100  # 100 KB
 
-APP_URL = 'https://github.com/Sixline/FireDM'
-LATEST_RELEASE_URL = 'https://github.com/Sixline/FireDM/releases/latest'
+APP_URL = 'https://github.com/Sixline/VDM'
+LATEST_RELEASE_URL = 'https://github.com/Sixline/VDM/releases/latest'
 
 FROZEN = getattr(sys, "frozen", False)  # check if app is being compiled by cx_freeze
 
@@ -139,7 +139,7 @@ audio_ext_choices = ('mp3', 'aac', 'wav', 'm4a', 'opus', 'flac', 'ogg', 'webm')
 audio_quality_choices = ('best', 'lowest')
 
 # ---------------------------------------------------------------------------------------Workarounds--------------------
-ibus_workaround = False  # issue 256: https://github.com/firedm/FireDM/issues/256
+ibus_workaround = False
 ignore_ssl_cert = False  # ignore ssl certificate validation
 
 #  a random user agent will be used later when importing youtube-dl, if no custom user agent

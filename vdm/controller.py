@@ -1,10 +1,10 @@
 """
-    FireDM
+    Vortex Download Manager (VDM)
 
-    multi-connections internet download manager, based on "LibCurl", and "youtube_dl".
-
+    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
-    :license: GNU LGPLv3, see LICENSE for more details.
+    :license: GNU GPLv3, see LICENSE.md for more details.
 
     module description:
         This is the controller module as a part of MVC design, which will replace the old application design
@@ -201,7 +201,7 @@ def download_thumbnail(d):
 
 def log_runtime_info():
     """Print useful information about the system"""
-    log('-' * 20, 'FireDM', '-' * 20)
+    log('-' * 20, 'VDM', '-' * 20)
 
     if config.isappimage:
         release_type = 'AppImage'
@@ -210,7 +210,7 @@ def log_runtime_info():
     else:
         release_type = 'Non-Frozen'
 
-    log('Starting FireDM version:', config.APP_VERSION, release_type)
+    log('Starting VDM version:', config.APP_VERSION, release_type)
     log('operating system:', config.operating_system_info)
     log('Python version:', sys.version)
     log('current working directory:', config.current_directory)
@@ -800,7 +800,7 @@ class Controller:
         # validate destination folder for existence and permissions
         try:
             # write test file to download folder
-            test_file_path = os.path.join(folder, 'test_file_.firedm')
+            test_file_path = os.path.join(folder, 'test_file_.VDM')
             # skip test in case test_file already created by another thread
             if not os.path.isfile(test_file_path):
                 with open(test_file_path, 'w') as f:
@@ -1026,10 +1026,10 @@ class Controller:
         # ends with 86 for 32 bit and 64 for 64 bit i.e. Win7-64: AMD64 and Vista-32: x86
         if platform.machine().endswith('64'):
             # 64 bit link
-            url = 'https://github.com/Sixline/FireDM/releases/download/extra/ffmpeg_64bit.exe'
+            url = 'https://github.com/Sixline/VDM/releases/download/extra/ffmpeg_64bit.exe'
         else:
             # 32 bit link
-            url = 'https://github.com/Sixline/FireDM/releases/download/extra/ffmpeg_32bit.exe'
+            url = 'https://github.com/Sixline/VDM/releases/download/extra/ffmpeg_32bit.exe'
 
         log('downloading: ', url)
 
@@ -1098,7 +1098,7 @@ class Controller:
     # region Application update
     @threaded
     def check_for_update(self, signal_id=None, wait=False, timeout=30, **kwargs):
-        """check for newer version of FireDM, youtube-dl, and yt_dlp
+        """check for newer version of VDM, youtube-dl, and yt_dlp
         Args:
             signal_id(any): signal a view when this function done
             wait(bool): wait for youtube-dl and ytdlp to load
@@ -1122,7 +1122,7 @@ class Controller:
                 time.sleep(1)
             log()
 
-        info = {'firedm': {'current_version': config.APP_VERSION, 'latest_version': None},
+        info = {'vdm': {'current_version': config.APP_VERSION, 'latest_version': None},
                 'youtube_dl': {'current_version': config.youtube_dl_version, 'latest_version': None},
                 'yt_dlp': {'current_version': config.yt_dlp_version, 'latest_version': None},
                 'awesometkinter': {'current_version': config.atk_version, 'latest_version': None},
@@ -1169,28 +1169,28 @@ class Controller:
             msg += 'Do you want to update now? \n'
             options = ['Update', 'Cancel']
 
-            # show update notes for firedm
-            if 'firedm' in new_pkgs:
-                log('getting FireDM changelog ....')
+            # show update notes for vdm
+            if 'vdm' in new_pkgs:
+                log('getting VDM changelog ....')
 
                 # download change log file
-                url = 'https://github.com/Sixline/FireDM/raw/master/ChangeLog.txt'
+                url = 'https://github.com/Sixline/VDM/raw/master/ChangeLog.txt'
                 changelog = download(url, verbose=False)
 
                 # verify server didn't send html page
                 if changelog and '<!DOCTYPE html>' not in changelog:
                     msg += '\n\n\n'
-                    msg += 'FireDM Change Log:\n'
+                    msg += 'VDM Change Log:\n'
                     msg += changelog
 
             res = self.get_user_response(msg, options)
             if res == options[0]:
 
                 # check write permission
-                tf = update.get_target_folder('firedm')
+                tf = update.get_target_folder('vdm')
                 if tf and not check_write_permission(tf):
                     log('Permission error:',
-                        'Run FireDM as admin to install updates', showpopup=True)
+                        'Run VDM as admin to install updates', showpopup=True)
                     return
 
                 # start updating modules
@@ -1230,14 +1230,14 @@ class Controller:
 
     @threaded
     def auto_check_for_update(self):
-        """auto check for firedm update"""
+        """auto check for vdm update"""
         if config.check_for_update and not config.disable_update_feature:
             today = date.today()
 
             if update.parse_version(config.APP_VERSION) > update.parse_version(config.updater_version):
                 config.last_update_check = (today.year, today.month, today.day)
                 config.updater_version = config.APP_VERSION
-                # log('Running newer FireDM version, reset last_update_check')
+                # log('Running newer VDM version, reset last_update_check')
 
             else:
                 try:
@@ -1248,7 +1248,7 @@ class Controller:
 
                 delta = today - last_check
                 if delta.days >= config.update_frequency:
-                    res = self.get_user_response(f'Check for FireDM update?\nLast check was {delta.days} days ago',
+                    res = self.get_user_response(f'Check for VDM update?\nLast check was {delta.days} days ago',
                                                  options=['Ok', 'Cancel'])
                     if res == 'Ok':
                         self.check_for_update()
@@ -1259,7 +1259,7 @@ class Controller:
             tf = update.get_target_folder(pkg)
             if tf and not check_write_permission(tf):
                 log('Permission error:',
-                    'Run FireDM as admin to rollback updates', showpopup=True)
+                    'Run VDM as admin to rollback updates', showpopup=True)
                 return
 
             run_thread(update.rollback_pkg_update, pkg, daemon=True)

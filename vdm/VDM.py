@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 """
-    FireDM
+    Vortex Download Manager (VDM)
 
-    multi-connections internet download manager, based on "LibCurl", and "youtube_dl".
-
+    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
-    :license: GNU LGPLv3, see LICENSE for more details.
+    :license: GNU GPLv3, see LICENSE.md for more details.
 
     Module description:
         This is main application module
@@ -19,14 +19,14 @@ import argparse
 import re
 import signal
 
-# This code should stay on top to handle relative imports in case of direct call of FireDM.py
+# This code should stay on top to handle relative imports in case of direct call of VDM.py
 if __package__ is None:
     path = os.path.realpath(os.path.abspath(__file__))
     sys.path.insert(0, os.path.dirname(path))
     sys.path.insert(0, os.path.dirname(os.path.dirname(path)))
     
-    __package__ = 'firedm'
-    import firedm
+    __package__ = 'vdm'
+    import vdm
 
 
 # local modules
@@ -45,10 +45,11 @@ def pars_args(arguments):
         arguments(list): list contains arguments, could be sys.argv[1:] i.e. without script name
     """
 
-    description = """FireDM is an open source Download Manager with multi-connections, high speed 
-        engine, it can download general files and video files from youtube and tons of other streaming websites. 
+    description = """Vortex Download Manager (VDM) is an open-source python Internet download manager
+        with a high speed multi-connection engine. It downloads general files and videos from youtube 
+        and tons of other streaming websites. 
         Developed in Python, based on "LibCurl", "youtube_dl", and "Tkinter". 
-        Source: https://github.com/Sixline/FireDM """
+        Source: https://github.com/Sixline/VDM """
 
     def iterable(txt):
         # process iterable in arguments, e.g. tuple or list,
@@ -68,11 +69,11 @@ def pars_args(arguments):
     # and prevent default value overwrite in config module
 
     parser = argparse.ArgumentParser(
-        prog='firedm',
+        prog='vdm',
         description=description,
-        epilog='copyright: (c) 2019-2021 FireDM. license: GNU LGPLv3, see LICENSE file for more details. '
-               'Author: Mahmoud Elshahat, '
-               'Isuues: https://github.com/Sixline/FireDM/issues',
+        epilog='copyright: (c) 2022 Vortex Download Manager. license: GNU GPLv3, see LICENSE.md file for more details.'
+               'Original project, FireDM, by Mahmoud Elshahat'
+               'Isuues: https://github.com/Sixline/VDM/issues',
         usage='\n'
               '%(prog)s [OPTIONS] URL1 URL2 URL3 \n'
               'example: %(prog)s "https://somesite.com/somevideo" "https://somesite.com/anothervideo"\n'
@@ -94,7 +95,7 @@ def pars_args(arguments):
         help='show this help message and exit')
     general.add_argument(
         '-v', '--version',
-        action='version', version='FireDM version: ' + __version__,
+        action='version', version='VDM version: ' + __version__,
         help='Print program version and exit')
     general.add_argument(
         '--show-settings',
@@ -108,7 +109,7 @@ def pars_args(arguments):
     general.add_argument(
         '--ignore-config', dest='ignore_config', default=argparse.SUPPRESS,
         action='store_true',
-        help='Do not load settings from config file. in ~/.config/FireDM/ or (APPDATA/FireDM/ on Windows)')
+        help='Do not load settings from config file. in ~/.config/VDM/ or (APPDATA/VDM/ on Windows)')
     general.add_argument(
         '--dlist', dest='ignore_dlist',
         action='store_false', default=argparse.SUPPRESS,

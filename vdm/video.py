@@ -1,10 +1,10 @@
 """
-    FireDM
+    Vortex Download Manager (VDM)
 
-    multi-connections internet download manager, based on "LibCurl", and "youtube_dl".
-
+    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
-    :license: GNU LGPLv3, see LICENSE for more details.
+    :license: GNU GPLv3, see LICENSE.md for more details.
 """
 import copy
 import os
@@ -84,7 +84,7 @@ def get_ytdl_options():
     ydl_opts['writeautomaticsub'] = True
 
     # if config.log_level >= 3:
-        # ydl_opts['verbose'] = True  # it make problem with Frozen FireDM, extractor doesn't work
+        # ydl_opts['verbose'] = True  # it make problem with Frozen VDM, extractor doesn't work
     # elif config.log_level <= 1:
     #     ydl_opts['quiet'] = True  # it doesn't work
 
@@ -1068,7 +1068,6 @@ def download_m3u8(url, http_headers=config.http_headers):
 def parse_subtitles(m3u8_doc, m3u8_url):
     # check subtitles in master m3u8, for some reasons youtube-dl doesn't recognize subtitles in m3u8 files
     # link: https://www.dplay.co.uk/show/ghost-loop/video/dead-and-breakfast/EHD_297528B
-    # github issue: https://github.com/firedm/FireDM/issues/77
     # if youtube-dl fixes this problem in future, there is no need for this batch
     subtitles = {}
     lines = m3u8_doc.splitlines()

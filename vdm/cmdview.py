@@ -1,10 +1,10 @@
 """
-    FireDM
+    Vortex Download Manager (VDM)
 
-    multi-connections internet download manager, based on "LibCurl", and "youtube_dl".
-
+    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
-    :license: GNU LGPLv3, see LICENSE for more details.
+    :license: GNU GPLv3, see LICENSE.md for more details.
 
     Module description:
         This is a command line / Terminal view, as a layer between user and controller
@@ -21,12 +21,12 @@ from threading import Event
 from collections import namedtuple
 
 if not __package__:
-    __package__ = 'firedm'
+    __package__ = 'vdm'
 
-from firedm.view import IView
-from firedm import utils
-from firedm.utils import format_bytes, format_seconds
-from firedm import config
+from vdm.view import IView
+from vdm import utils
+from vdm.utils import format_bytes, format_seconds
+from vdm import config
 
 
 def write(s, end=''):

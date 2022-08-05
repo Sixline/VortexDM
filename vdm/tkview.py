@@ -1,10 +1,10 @@
 """
-    FireDM
+    Vortex Download Manager (VDM)
 
-    multi-connections internet download manager, based on "pyCuRL/curl", and "youtube_dl""
-
+    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
-    :license: GNU LGPLv3, see LICENSE for more details.
+    :license: GNU GPLv3, see LICENSE.md for more details.
 
     Module description:
         Main application gui design by tkinter
@@ -31,8 +31,8 @@ if __package__ is None:
     sys.path.insert(0, os.path.dirname(path))
     sys.path.insert(0, os.path.dirname(os.path.dirname(path)))
 
-    __package__ = 'firedm'
-    import firedm
+    __package__ = 'vdm'
+    import vdm
 
 from .view import IView
 from .controller import Controller, set_option, get_option, log_runtime_info
@@ -1065,7 +1065,7 @@ class FileDialog:
     def __init__(self, foldersonly=False):
         self.use = 'TK'  #, 'zenity', or 'kdialog'
         self.foldersonly = foldersonly
-        self.title = 'FireDM - ' 
+        self.title = 'VDM - ' 
         self.title += 'Select a folder' if self.foldersonly else 'Select a file'
         if config.operating_system == 'Linux':
             # looking for zenity
@@ -3164,7 +3164,7 @@ class MainWindow(IView):
 
         # prevent window resize to zero
         self.root.minsize(750, 455)
-        self.root.title(f'FireDM ver.{config.APP_VERSION}')
+        self.root.title(f'VDM ver.{config.APP_VERSION}')
         self.main_frame = None
 
         # set window icon
@@ -3182,7 +3182,7 @@ class MainWindow(IView):
         s = ttk.Style()
         s.theme_use('default')
 
-        # apply firedm theme
+        # apply VDM theme
         self.apply_theme(config.current_theme)
 
         self.create_main_widgets()
@@ -3214,12 +3214,11 @@ class MainWindow(IView):
         self.post_processors = {}
 
     def ibus_workaround(self):
-        # issue 256: https://github.com/firedm/FireDM/issues/256
-        # because of ibus bug, FireDM take longer time to load with every run as time goes on, same as 
+        # because of ibus bug, VDM take longer time to load with every run as time goes on, same as 
         # any tkinter application.
-        # workaround is to kill ibus-x11 then restart ibus again after FireDM finish loading
+        # workaround is to kill ibus-x11 then restart ibus again after VDM finish loading
         # reported bug at https://github.com/ibus/ibus/issues/2324
-        # however this workaround makes FireDM loads faster, ibus will still affect gui performance when 
+        # however this workaround makes VDM loads faster, ibus will still affect gui performance when 
         # it gets restarted again.
         # hope they fix this bug as soon as possible
         p = subprocess.Popen(['ps', '-A'], stdout=subprocess.PIPE, universal_newlines=True)
@@ -3231,7 +3230,7 @@ class MainWindow(IView):
                 pid = int(line.split(None, 1)[0])
                 try:
                     os.kill(pid, signal.SIGKILL)
-                    log('stopped ibus-x11 temporarily to fix issue at https://github.com/firedm/FireDM/issues/256 and https://github.com/ibus/ibus/issues/2324')
+                    log('stopped ibus-x11 temporarily to fix issue at https://github.com/ibus/ibus/issues/2324')
                     self.should_restart_ibus = True
                     time.sleep(0.1)  # a small delay to fix gui not starting sometimes.
                 except Exception as e:
@@ -3943,7 +3942,7 @@ class MainWindow(IView):
 
         CheckEntryOption(tab, ' Run command:  ', entry_key='on_completion_command').pack(anchor='w', fill='x',
                                                                                          expand=True, padx=(0, 5))
-        CheckOption(tab, ' Exit FireDM', key='on_completion_exit').pack(anchor='w', fill='x', expand=True, padx=(0, 5))
+        CheckOption(tab, ' Exit VDM', key='on_completion_exit').pack(anchor='w', fill='x', expand=True, padx=(0, 5))
         CheckOption(tab, ' Shutdown computer', key='shutdown_pc').pack(anchor='w', fill='x', expand=True, padx=(0, 5))
 
         separator()
@@ -4049,10 +4048,10 @@ class MainWindow(IView):
             .grid(row=0, column=1, sticky='w')
         tk.Label(update_frame, bg=bg, fg=fg, text='days', padx=5).grid(row=0, column=2, sticky='w')
 
-        # FireDM update
-        self.firedm_update_note = tk.StringVar()
-        self.firedm_update_note.set(f'FireDM version: {config.APP_VERSION}')
-        lbl(self.firedm_update_note).grid(row=1, column=1, sticky='w', pady=20, padx=20)
+        # VDM update
+        self.vdm_update_note = tk.StringVar()
+        self.vdm_update_note.set(f'VDM version: {config.APP_VERSION}')
+        lbl(self.vdm_update_note).grid(row=1, column=1, sticky='w', pady=20, padx=20)
 
         # youtube-dl and yt_dlp
         self.youtube_dl_update_note = tk.StringVar()
@@ -4064,7 +4063,7 @@ class MainWindow(IView):
         lbl(self.yt_dlp_update_note).grid(row=3, column=1, sticky='w', pady=(0, 20), padx=20)
 
         if config.FROZEN or config.isappimage:
-            for i, pkg in enumerate(('firedm', 'youtube_dl', 'yt_dlp')):
+            for i, pkg in enumerate(('vdm', 'youtube_dl', 'yt_dlp')):
                 Button(update_frame, text='Rollback', command=lambda x=pkg: self.rollback_pkg_update(x),
                        tooltip=f'Restore Previous {pkg} Version',
                        image=imgs['undo_icon']).grid(row=i + 1, column=3, sticky='w', pady=5)
@@ -4896,11 +4895,11 @@ class MainWindow(IView):
 
     @ignore_calls_when_busy
     def show_about_notes(self):
-        res = self.popup(about_notes, buttons=['Home', 'Help!', 'Close'], title='About FireDM')
+        res = self.popup(about_notes, buttons=['Home', 'Help!', 'Close'], title='About VDM')
         if res == 'Help!':
-            open_webpage('https://github.com/firedm/FireDM/blob/master/docs/user_guide.md')
+            open_webpage('https://github.com/Sixline/VDM/blob/master/docs/user_guide.md')
         elif res == 'Home':
-            open_webpage('https://github.com/firedm/FireDM')
+            open_webpage('https://github.com/Sixline/VDM')
 
         free_callback(self.show_about_notes)
 
