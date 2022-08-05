@@ -1,11 +1,15 @@
 # ignore all files and directories
 *
 
+.github/
+.github/workflows/
+.github/workflows/*
+
 # include only the following
 !docs/
 !docs/*
-!firedm/
-!firedm/*.py
+!vdm/
+!vdm/*.py
 !ChangeLog.txt
 !contributors.md
 !LICENSE
@@ -13,7 +17,6 @@
 !README.md
 !requirements.txt
 !setup.py
-!todo.md
 !.gitignore
 !.gitattributes
 !scripts/
@@ -27,11 +30,6 @@
 !scripts/appimage/appimage-quickbuild.py
 !scripts/appimage/run.py
 !icons/
-!icons/48x48.png
-!icons/48_32_16.ico
-!.github/
-!.github/workflows/
-!.github/workflows/*
-
+!icons/*
 
 
