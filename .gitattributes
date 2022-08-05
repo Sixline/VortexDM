@@ -4,6 +4,7 @@
 # avoid images
 *.jpg		-text
 *.png		-text
+*.svg       -text
 
 *.vcproj	text eol=crlf
 *.txt       text eol=crlf

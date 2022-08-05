@@ -1,8 +1,8 @@
 """
-    FireDM
+    Vortex Download Manager
 
-    multi-connections internet download manager, based on "LibCurl", and "youtube_dl".
-
+    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    :copyright: (c) 2022- by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
     :license: GNU LGPLv3, see LICENSE for more details.
 """
@@ -16,7 +16,7 @@ current_directory = os.path.dirname(path)
 
 # get version
 version = {}
-with open(f"{current_directory}/firedm/version.py") as f:
+with open(f"{current_directory}/vdm/version.py") as f:
     exec(f.read(), version)  # then we can use it as: version['__version__']
 
 # get long description from readme
@@ -31,28 +31,28 @@ except:
                     'awesometkinter >= 2021.3.19']
 
 setuptools.setup(
-    name="FireDM",
+    name="Vortex Download Manager",
     version=version['__version__'],
-    scripts=[],  # ['FireDM.py'], no need since added an entry_points
+    scripts=[],  # ['VDM.py'], no need since added an entry_points
     author="Mahmoud Elshahat",
-    author_email="info.pyidm@gmail.com",
-    description="download manager",
+    maintainer="Sixline",
+    description="Vortex Download Manager",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Sixline/FireDM ",
+    url="https://github.com/Sixline/VDM ",
     packages=setuptools.find_packages(),
-    keywords="internet download manager youtube hls pycurl curl youtube-dl tkinter",
+    keywords="vdm internet download manager youtube hls pycurl curl youtube-dl tkinter",
     project_urls={
-        'Source': 'https://github.com/Sixline/FireDM',
-        'Tracker': 'https://github.com/Sixline/FireDM/issues',
-        'Releases': 'https://github.com/Sixline/FireDM/releases',
+        'Source': 'https://github.com/Sixline/VDM',
+        'Tracker': 'https://github.com/Sixline/VDM/issues',
+        'Releases': 'https://github.com/Sixline/VDM/releases',
 #        'Screenshots': 'https://github.com/firedm/FireDM/issues/13#issuecomment-689337428'
     },
     install_requires=requirements,
     entry_points={
         # our executable: "exe file on windows for example"
         'console_scripts': [
-            'firedm = firedm.FireDM:main',
+            'vdm = vdm.VDM:main',
         ]},
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -1,80 +1,62 @@
-# The original creator removed the project repository from Github but left it on PyPI. The latest version they published there, 2022.4.14, I believe was purposely sabotaged to not work and anybody who accepted the update in FireDM would be left with the broken version. If you want to install from PyPI install 2022.2.5 and don't update. https://pypi.org/project/FireDM/2022.2.5
+# Renaming the project to Vortex Download Manager and will carry on where FireDM 2022.2.5 left off. Original project, FireDM, by Mahmoud Elshahat. RIP
 
-# I will work on getting builds posted here and a separate PyPI project. I might just rename it something else and we can carry on where the original left off.
+## The original creator removed the project repository from Github but left it on PyPI. The latest version they published there, 2022.4.14, I believe was purposely sabotaged to not work and anybody who accepted the update in FireDM would be left with the broken version. ~~If you want to install from PyPI install 2022.2.5 and don't update. https://pypi.org/project/FireDM/2022.2.5~~ 2022.2.5 is now gone from PyPI.
 
-https://www.reddit.com/r/Python/comments/u44t8y/firedm_repos_no_longer_exist/
+Homepage: https://github.com/Sixline/VDM
 
-https://www.reddit.com/r/freesoftware/comments/u8zwaz/firedm_repos_no_longer_exist/
+![GitHub All Releases](https://img.shields.io/github/downloads/Sixline/VDM/total?color=orange&label=GitHub%20Releases)
 
-Old Homepage (Project deleted for unknown reasons): https://github.com/firedm/FireDM
+![GitHub issues](https://img.shields.io/github/issues-raw/Sixline/VDM?color=brightgreen) - ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Sixline/VDM?color=blueviolet)
 
-Homepage: https://github.com/Sixline/FireDM
+![Logo](https://github.com/Sixline/FireDM/blob/main/icons/48x48.ico?raw=true)
+Vortex Download Manager (VDM) is an open-source python Internet download manager with a high speed multi-connection engine. It downloads general files and videos from youtube and tons of other streaming websites.
 
-[![Downloads](https://static.pepy.tech/personalized-badge/pyidm?period=total&units=international_system&left_color=grey&right_color=blue&left_text=PyIDM%20Downloads%20(pypi))](https://pepy.tech/project/pyidm)
-[![Downloads](https://static.pepy.tech/personalized-badge/firedm?period=total&units=international_system&left_color=grey&right_color=blue&left_text=FireDM%20Downloads%20(pypi))](https://pepy.tech/project/firedm)
-
-![GitHub All Releases](https://img.shields.io/github/downloads/Sixline/firedm/total?color=blue&label=GitHub%20Releases)
-
-![GitHub issues](https://img.shields.io/github/issues-raw/Sixline/firedm?color=blue) - ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Sixline/firedm?color=blue)
-
-![Logo](https://github.com/Sixline/FireDM/blob/main/icons/48x48.png?raw=true)
-FireDM is a python open source (Internet Download Manager) 
-with multi-connections, high speed engine, 
-it downloads general files and videos from youtube and tons of other streaming websites . <br>
 Developed in Python, based on "LibCurl", and "youtube_dl".
 
-[**Download Latest version!!**](https://github.com/Sixline/FireDM/releases/latest)
-
----
 **Features**:
-* High download speeds "based on LibCurl"
-* Multi-connection downloading "Multithreading"
-* Automatic file segmentation.
-* Automatic refresh for dead links.
-* Resume uncompleted downloads.
-* Support for Youtube, and a lot of stream websites "using youtube-dl to fetch info and libcurl to download media".
-* download entire video playlist or selected videos.
-* download fragmented video streams, and encrypted/nonencrypted HLS media streams.
-* watch videos while downloading* "some videos will have no audio until
-  finish downloading".
-* download video subtitles.
-* write video metadata to downloaded files.
-* check for application updates.
-* Scheduling downloads
-* Re-using existing connection to remote server.
-* Clipboard Monitor.
-* proxy support (http, https, socks4, and socks5).
-* user/pass authentication, referee link, use cookies, video thumbnail,
-  subtitles.
-* use custom cookies files.
-* MD5 and SHA256 checksums.
-* Custom gui themes.
-* Set download Speed limit
-* User can run shell commands or shutdown computer on download completion.
-* Control number of Concurrent downloads and Max. connections per each download.
+* High download speeds based on LibCurl
+* Multi-connection downloading
+* Automatic file segmentation
+* Automatic refresh for dead links
+* Resume uncompleted downloads
+* Support for Youtube, and a lot of other stream websites using youtube-dl to fetch info and libcurl to download media
+* Download entire video, playlist, or selected videos
+* Download fragmented video streams and encrypted/nonencrypted HLS media streams
+* Watch videos while downloading *some videos will have no audio until they finish downloading*
+* Download video subtitles
+* Write video metadata to downloaded files
+* Checking for application updates
+* Scheduled downloads
+* Re-using existing connections
+* Clipboard monitor
+* Proxy support (http, https, socks4, and socks5)
+* User/pass authentication, referee link, video thumbnail, and subtitles
+* Use custom cookie files
+* MD5 and SHA256 checksums
+* Custom GUI themes
+* Set download speed limit
+* Shell commands or computer shutdown on download completion
+* Control number of the concurrent downloads and maximum connections
 
----
-# How to use FireDM:
-running in command line: show help by typing `firedm -h`  <br>
+# How to use VDM:
+Running in command line: show help by typing `vdm -h`
 
-running GUI: Refer to user guide at https://github.com/Sixline/FireDM/blob/master/docs/user_guide.md
+Running the GUI: Refer to the user guide at https://github.com/Sixline/VDM/blob/master/docs/user_guide.md
 
-----------------------
-# Portable FireDM versions:
+# Portable VDM versions:
   
-Run FireDM without any installation (recommended) 
- - **Windows portable version** ([Download!](https://github.com/Sixline/FireDM/releases/latest)):  
+Run VDM without any installation (recommended) 
+ - **Windows portable version** ([Download!](https://github.com/Sixline/VDM/releases/latest)):  
    available in .zip format.  
-   unzip, and run from FireDM.exe, no installation required.
+   unzip, and run from VDM.exe, no installation required.
    
- - **Linux portable version** ([Download!](https://github.com/Sixline/FireDM/releases/latest)):   
+ - **Linux portable version** ([Download!](https://github.com/Sixline/VDM/releases/latest)):   
    available in .AppImage format.  
    download file, then mark it as executable, and run it, no installation required,
-   tested on ubuntu, mint, and manjaro.<br>
-   note: ffmpeg is not included and must be installed separately if not exist <br>
+   tested on ubuntu, mint, and manjaro.
+   note: ffmpeg is not included and must be installed separately
    
-   mark file as executable by right clicking the file> Properties> Permissions> Allow executing file as a program, 
-   or from terminal by `chmod +x FireDM_xxx.AppImage` <br>
+   mark file as executable by right clicking the file> Properties> Permissions> Allow executing file as a program, or from terminal by `chmod +x VDM_xxx.AppImage`
    
    To check for ffmpeg use this command:
    ```sh
@@ -84,31 +66,17 @@ Run FireDM without any installation (recommended)
     /usr/bin/ffmpeg
    ```
 
-   if ffmpeg is missing you can install it by `sudo apt install ffmpeg` on debian based or `sudo pacman -S ffmpeg`
-    on Arch based distros.
-----------------------
+   if ffmpeg is missing you can install it by `sudo apt install ffmpeg` on debian based or `sudo pacman -S ffmpeg` on Arch based distros.
 
-## Manually installing FireDM with pip (Linux):
-1- check python version (minimum version required is 3.6): `python3 --version`
+## Manually installing VDM with pip (Linux):
 
-2- install required packages first:<br>
-- Linux, ubuntu:<br>
-```sh
-sudo apt install ffmpeg libcurl4-openssl-dev libssl-dev python3-pip python3-pil python3-pil.imagetk python3-tk python3-dbus gir1.2-appindicator3-0.1
-sudo apt install fonts-symbola fonts-linuxlibertine fonts-inconsolata fonts-emojione
-```
-
-3- install firedm using pip:<br>
-
-```sh
-python3 -m pip install firedm --user --upgrade --no-cache
-```
+Removed for now until project is added to PyPI.
 
 ## Running from source code inside virtual environment (Linux):
 1- check python version (minimum version required is 3.6): `python3 --version`
 
-2- install required packages first:<br>
-- Linux, ubuntu:<br>
+2- install required packages first:
+- Linux, ubuntu:
 ```sh
 sudo apt install ffmpeg libcurl4-openssl-dev libssl-dev python3-pip python3-pil python3-pil.imagetk python3-tk python3-dbus gir1.2-appindicator3-0.1
 sudo apt install fonts-symbola fonts-linuxlibertine fonts-inconsolata fonts-emojione
@@ -117,57 +85,49 @@ sudo apt install fonts-symbola fonts-linuxlibertine fonts-inconsolata fonts-emoj
 3- run below code to clone this repo, create virtual environment, install requirements, create launch script, and finally run FireDM
 
 ```sh
-git clone --depth 1 https://github.com/firedm/FireDM.git
+git clone --depth 1 https://github.com/VDM/VDM.git
 python3 -m venv ./.env
 source ./.env/bin/activate
-python3 -m pip install -r ./FireDM/requirements.txt
+python3 -m pip install -r ./VDM/requirements.txt
 echo "source ./.env/bin/activate
-python3 ./FireDM/firedm.py \$@
-" > firedm.sh
-chmod +x ./firedm.sh
-./firedm.sh
+python3 ./VDM/vdm.py \$@
+" > vdm.sh
+chmod +x ./vdm.sh
+./vdm.sh
 ```
 
-> optionally create .desktop file and add FireDM to your applications
+> optionally create .desktop file and add VDM to your applications
 ```sh
-FireDMLSPATH=$(realpath ./firedm.sh)
+FireDMLSPATH=$(realpath ./vdm.sh)
 echo "[Desktop Entry]
-Name=FireDM
-GenericName=FireDM
-Comment=FireDM Download Manager
-Exec=$FireDMLSPATH
-Icon=firedm
+Name=Vortex Download Manager
+GenericName=VDM
+Comment=Vortex Download Manager
+Exec=$VDMLSPATH
+Icon=vdm
 Terminal=false
 Type=Application
 Categories=Network;
 Keywords=Internet;download
-" > FireDM.desktop
-cp ./FireDM.desktop ~/.local/share/applications/
+" > VDM.desktop
+cp ./VDM.desktop ~/.local/share/applications/
 mkdir -p ~/.local/share/icons/hicolor/48x48/apps/
-cp ./FireDM/icons/48x48.png ~/.local/share/icons/hicolor/48x48/apps/firedm.png
+cp ./FireDM/icons/vdm.png ~/.local/share/icons/hicolor/48x48/apps/vdm.png
 ```
 
-## Arch-linux (AUR):
- - Firedm available for arch linux on AUR https://aur.archlinux.org/packages/firedm/ , Special Thanks to qontinuum for maintaining this package.
+# Known Issues:
+- Linux X-server will raise an error if some fonts are missing especially emoji fonts - See Dependencies below
 
----
-
-# Known Issues (Links no longer valid):
-- Linux X-server will raise an error if some fonts are missing especially emoji fonts, for more info refer to [issue #200](https://github.com/firedm/FireDM/issues/200).
-
-
-- Mac - Tkinter, as mentioned in "python.org" the Apple-supplied Tcl/Tk 8.5 has serious bugs that can cause application crashes. If you wish to use Tkinter, do not use the Apple-supplied Pythons. Instead, install and use a newer version of Python from python.org or a third-party distributor that supplies or links with a newer version of Tcl/Tk. <br>
-refer to [issue #113](https://github.com/firedm/FireDM/issues/113)
+- Mac - Tkinter, as mentioned in "python.org" the Apple-supplied Tcl/Tk 8.5 has serious bugs that can cause application crashes. If you wish to use Tkinter, do not use the Apple-supplied Pythons. Instead, install and use a newer version of Python from python.org or a third-party distributor that supplies or links with a newer version of Tcl/Tk.
 
 - systray icon: depends on Gtk+3 and AppIndicator3 on linux, please refer to your distro guides on how to install these packages if you need systray to run properly
----
 
 # Dependencies:
 - Python 3.6+: tested with python 3.6 on windows, and 3.7, 3.8 on linux
 - tkinter
 - [ffmpeg](https://www.ffmpeg.org/) : for merging audio with youtube DASH videos "it will be installed automatically on windows"
 - Fonts: (Linux X-server will raise an error if some fonts are missing especially emoji fonts, below are the 
-recommended fonts to be installed, for more info refer to [issue #200](https://github.com/firedm/FireDM/issues/200).) (Link no longer valid)
+recommended fonts to be installed
 
     ```
     ttf-linux-libertine 
@@ -181,78 +141,23 @@ recommended fonts to be installed, for more info refer to [issue #200](https://g
 - [yt_dlp](https://github.com/yt-dlp/yt-dlp): a fork of youtube-dlc which is inturn a fork of youtube-dl
 - [certifi](https://github.com/certifi/python-certifi): required by 'pycurl' for validating the trustworthiness of SSL certificates,
 - [plyer](https://github.com/kivy/plyer): for systray area notification.
-- [awesometkinter](https://github.com/Aboghazala/AwesomeTkinter): for
-  application gui.
+- [awesometkinter](https://github.com/Aboghazala/AwesomeTkinter): for application gui.
 - [pillow](https://python-pillow.org/): imaging library for python
 - [pystray](https://github.com/moses-palmer/pystray): for systray icon
 
-**Note for pycurl:** <br>
-for windows users who wants to run from source or use pip:
-unfortunately, pycurl removed binary versions for windows and this link "https://dl.bintray.com/pycurl/pycurl/" is now dead, and one has to build pycurl from source which is not an easy task, details are here http://pycurl.io/docs/latest/install.html#windows
-normal pip install i.e `python -m pip install pycurl` probably will fail on windows, your best choice is to use FireDM standalone/portable exe version.
+**Note for PycURL:**
+For Windows users who wants to run from source or use pip:
+Unfortunately, PycURL removed binary versions for Windows and it now has to be built from source. See here: http://pycurl.io/docs/latest/install.html#windows
+Normal pip install i.e `python -m pip install pycurl` probably will fail on Windows, your best choice is to use the VDM standalone/portable exe version.
 
-
-for linux users:
-there is no issues, since most linux distros have curl preinstalled, so pycurl will link with libcurl library to get built with no issues, checked with python versions 3.6, 3.7, and 3.8 working with no problems.
-<br>
-
-
----
-# what is the benefit of open source, compared to closed-source/Proprietary software if both are free?
-As said, **"if the product is free, then you are the product"**, most
-free closed-source software collect data about you, some of them are
-toxic and plant trojans/spy-wares in your system, with open source,
-nothing hidden, and source code exposed to thousands of programmers, no
-one can play dirty games.
-
-
-Need to mention, this project is never made to compete with other
-download managers, it is just a "hopefully useful" addition.
-
----
-
-<br>
+For Linux users:
+There is no issue since most Linux distros have cURL preinstalled. PycURL will link with the libcurl library and get built without issues. Checked with python versions 3.6, 3.7, and 3.8.
 
 # How to contribute to this project:
-1- by testing the application and opening
-[new issue](https://github.com/Sixline/FireDM/issues/new) for bug
-reporting, feature request, or suggestions.  
-2- check
-[developer guidelines](https://github.com/Sixline/FireDM/blob/master/docs/developer_guide.md).  
-3- check
-[todo list](https://github.com/Sixline/FireDM/blob/master/todo.md).  
-4- check open issues, see if you can help.  
-5- fork this repo and pull request
+1- By testing the application and opening [new issues](https://github.com/Sixline/VDM/issues/new) for bugs, feature requests, or suggestions.
+2- Check the [Developer Guidelines](https://github.com/Sixline/VDM/blob/master/docs/developer_guide.md).
+3- Check [open issues](https://github.com/Sixline/VDM/issues?q=is%3Aopen+is%3Aissue) and see if you can help.
+4- Fork this repo and make a pull request.
 
-<br>
-
----
-
-# Some articles/reviews on this project*:
-- [ghacks](https://www.ghacks.net/2020/08/13/pyidm-is-an-open-source-download-manager-that-can-download-videos-and-playlists/)
-- [softpedia](https://www.softpedia.com/get/Internet/Download-Managers/PyIDM.shtml)
-- [hackermilk](http://hackermilk.info/2020/01/an_open_source_alternative_to_internet.html)
-
-  *help edit this list by writing a comment in
-  [this issue](https://github.com/firedm/FireDM/issues/136) (Link no longer valid)
----
-
-# contributors:
-Please check
-[contributors.md](https://github.com/Sixline/FireDM/blob/master/contributors.md)
-for a list of contributors
-
----
-
-# Feedback:
-your feedback is most welcomed by filling a
-[new issue](https://github.com/Sixline/FireDM/issues/new)  
-or email to: info.pyidm@gmail.com <br> (Unknown if valid, original creator deleted project)
-
-
----
-
-Author:  
-Mahmoud Elshahat  
-2019-2021
-
+# Contributors:
+Please check [contributors.md](https://github.com/Sixline/FireDM/blob/master/contributors.md) for a list of contributors.
