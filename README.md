@@ -1,6 +1,6 @@
 # Renaming the project to Vortex Download Manager and will carry on where FireDM 2022.2.5 left off. Original project, FireDM, by Mahmoud Elshahat. RIP
 
-## The original creator removed the project repository from Github but left it on PyPI. The latest version they published there, 2022.4.14, I believe was purposely sabotaged to not work and anybody who accepted the update in FireDM would be left with the broken version. ~~If you want to install from PyPI install 2022.2.5 and don't update. https://pypi.org/project/FireDM/2022.2.5~~ 2022.2.5 is now gone from PyPI.
+The original creator removed the project repository from Github but left it on PyPI. The latest version they published there, 2022.4.14, I believe was purposely sabotaged to not work and anybody who accepted the update in FireDM would be left with the broken version. ~~If you want to install from PyPI install 2022.2.5 and don't update. https://pypi.org/project/FireDM/2022.2.5~~ 2022.2.5 is now gone from PyPI.
 
 Homepage: https://github.com/Sixline/VDM
 
@@ -8,7 +8,7 @@ Homepage: https://github.com/Sixline/VDM
 
 ![GitHub issues](https://img.shields.io/github/issues-raw/Sixline/VDM?color=brightgreen) - ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Sixline/VDM?color=blueviolet)
 
-![Logo](https://github.com/Sixline/FireDM/blob/main/icons/48x48.ico?raw=true)
+![Logo](https://github.com/Sixline/VDM/blob/main/icons/vdm.png)
 Vortex Download Manager (VDM) is an open-source python Internet download manager with a high speed multi-connection engine. It downloads general files and videos from youtube and tons of other streaming websites.
 
 Developed in Python, based on "LibCurl", and "youtube_dl".
@@ -155,8 +155,11 @@ There is no issue since most Linux distros have cURL preinstalled. PycURL will l
 
 # How to contribute to this project:
 1- By testing the application and opening [new issues](https://github.com/Sixline/VDM/issues/new) for bugs, feature requests, or suggestions.
+
 2- Check the [Developer Guidelines](https://github.com/Sixline/VDM/blob/master/docs/developer_guide.md).
+
 3- Check [open issues](https://github.com/Sixline/VDM/issues?q=is%3Aopen+is%3Aissue) and see if you can help.
+
 4- Fork this repo and make a pull request.
 
 # Contributors:
