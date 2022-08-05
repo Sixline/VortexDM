@@ -1,10 +1,6 @@
 # ignore all files and directories
 *
 
-.github/
-.github/workflows/
-.github/workflows/*
-
 # include only the following
 !docs/
 !docs/*
@@ -31,5 +27,8 @@
 !scripts/appimage/run.py
 !icons/
 !icons/*
+!.github/
+!.github/workflows/
+!.github/workflows/*
 
 
