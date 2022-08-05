@@ -675,8 +675,9 @@ Public License instead of this License.  But first, please read
 
 --------------------------------------------------------------------------------------------------------------------------
 
-Original project, FireDM, by Mahmoud Elshahat. Original copyright notice and license below.
+# Original project, FireDM, by Mahmoud Elshahat. Original copyright notice and license below.
 
+```
 Copyright (c) 2019, 2021 FireDM, by Mahmoud Elshahat, "info.pyidm@gmail.com"
 
 # ###################################################################################################################
@@ -715,3 +716,4 @@ Copyright (c) 2019, 2021 FireDM, by Mahmoud Elshahat, "info.pyidm@gmail.com"
 #  - Changes made to the code must be documented                                                                    #
 #  - A copy of this license and above copyright notice must be included with the software.                          #
 # ###################################################################################################################
+```
