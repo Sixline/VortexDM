@@ -59,7 +59,7 @@ def check_for_new_version():
 
         else:
             # check pypi version
-            latest_version, _ = get_pkg_latest_version('vdm')
+            latest_version, _ = get_pkg_latest_version('vortexdm')
 
         if parse_version(latest_version) > parse_version(config.APP_VERSION):
             log('Found new version:', str(latest_version))
@@ -150,7 +150,7 @@ def get_pkg_latest_version(pkg, fetch_url=True):
 
 
 def get_target_folder(pkg):
-    # determin target folder
+    # determine target folder
     current_directory = config.current_directory
     if config.FROZEN:  # windows cx_freeze
         # current directory is the directory of exe file

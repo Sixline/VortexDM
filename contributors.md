@@ -2,8 +2,11 @@ I would like to thank everyone who contributed in this project in any
 way, with code, bug reports, or ideas.
 
 If you think your name should be included in this list or want to modify
-your name please make an issue, pull request, or send an email to
-info.pyidm@gmail.com
+your name please make an issue or pull request.
+
+---
+
+Original project, FireDM, by Mahmoud Elshahat. All original contributors are listed below.
 
 ---
 

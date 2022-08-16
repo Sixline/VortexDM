@@ -31,7 +31,7 @@ except:
                     'awesometkinter >= 2021.3.19']
 
 setuptools.setup(
-    name="Vortex Download Manager",
+    name="vortexdm",
     version=version['__version__'],
     scripts=[],  # ['VDM.py'], no need since added an entry_points
     author="Mahmoud Elshahat",
@@ -41,7 +41,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/Sixline/VDM ",
     packages=setuptools.find_packages(),
-    keywords="vdm internet download manager youtube hls pycurl curl youtube-dl tkinter",
+    keywords="vdm firedm internet download manager youtube hls pycurl curl youtube-dl tkinter",
     project_urls={
         'Source': 'https://github.com/Sixline/VDM',
         'Tracker': 'https://github.com/Sixline/VDM/issues',
@@ -55,12 +55,12 @@ setuptools.setup(
             'vdm = vdm.VDM:main',
         ]},
     classifiers=[
-        "Programming Language :: Python :: 3",
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
-        "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.6',
+    python_requires='>=3.7',
 )
