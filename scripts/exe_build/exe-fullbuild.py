@@ -1,14 +1,14 @@
 """
-    FireDM
+    Vortex Download Manager (VDM)
 
-    multi-connections internet download manager, based on "pyCuRL/curl", and "youtube_dl""
-
+    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
-    :license: GNU LGPLv3, see LICENSE for more details.
+    :license: GNU GPLv3, see LICENSE.md for more details.
 
     Module description:
         build an executable (exe) for windows using cx_freeze
-        you should execute this module from command line using: "python cx_setup.py build" on windows only.
+        you should execute this module from command line using: "python exe-fullbuild.py build" on windows only.
 """
 
 import os
@@ -18,7 +18,7 @@ import subprocess
 
 from cx_Freeze import setup, Executable
 
-APP_NAME = 'FireDM'
+APP_NAME = 'Vortex Download Manager'
 
 # to run setup.py directly
 if len(sys.argv) == 1:
@@ -28,18 +28,16 @@ if len(sys.argv) == 1:
 fp = os.path.realpath(os.path.abspath(__file__))
 current_folder = os.path.dirname(fp)
 
-print('cx_setup.py ......................................................................................')
-
 project_folder = os.path.dirname(os.path.dirname(current_folder))
 build_folder = current_folder
 app_folder = os.path.join(build_folder, APP_NAME)
-icon_path = os.path.join(project_folder, 'icons', '48_32_16.ico') # best use size 48, and must be an "ico" format
-version_fp = os.path.join(project_folder, 'firedm', 'version.py')
+icon_path = os.path.join(project_folder, 'icons', 'vdm.ico') # best use size 48, and must be an "ico" format
+version_fp = os.path.join(project_folder, 'vdm', 'version.py')
 requirements_fp = os.path.join(project_folder, 'requirements.txt')
-main_script_path = os.path.join(project_folder, 'firedm.py')
+main_script_path = os.path.join(project_folder, 'vdm.py')
 
 sys.path.insert(0,  project_folder)  # for imports to work
-from firedm.utils import simpledownload, delete_folder, create_folder
+from vdm.utils import simpledownload, delete_folder, delete_file, create_folder, zip_extract
 
 # create build folder
 create_folder(build_folder)
@@ -50,10 +48,9 @@ with open(version_fp) as f:
     exec(f.read(), version_module)  # then we can use it as: version_module['__version__']
     version = version_module['__version__']
 
-
 # get required packages
 with open(requirements_fp) as f:
-    packages = [line.strip().split(' ')[0] for line in f.readlines() if line.strip()] + ['firedm']
+    packages = [line.strip().split(' ')[0] for line in f.readlines() if line.strip()] + ['vdm']
 
 # clean names
 packages = [pkg.replace(';', '') for pkg in packages]
@@ -83,8 +80,8 @@ executables = [
 setup(
 
     version=version,
-    description=f"{APP_NAME} Download Manager",
-    author="Mahmoud Elshahat",
+    description=f"{APP_NAME}",
+    author="Sixline - Original project, FireDM, by Mahmoud Elshahat",
     name=APP_NAME,
 
     options={"build_exe": {
@@ -102,59 +99,57 @@ setup(
 
 # Post processing
 
-# there is a bug in python3.6 where tkinter name is "Tkinter" with capital T, will rename it.
-try:
-    print('-' * 50)
-    print('rename Tkinter to tkinter')
-    os.rename(f'{app_folder}/lib/Tkinter', f'{app_folder}/lib/tkinter')
-except Exception as e:
-    print(e)
-
-# manually remove excluded libraries if found
-for lib_name in excludes:
-    folder = f'{app_folder}/lib/{lib_name}'
-    delete_folder(folder, verbose=True)
-
 # ffmpeg
-ffmpeg_path = os.path.join(current_folder, 'ffmpeg.exe')
+ffmpeg_zip_path = os.path.join(current_folder, 'ffmpeg-master-latest-win64-gpl.zip')
+ffmpeg_extract_path = os.path.join(current_folder, 'ffmpeg-master-latest-win64-gpl')
+ffmpeg_path = os.path.join(ffmpeg_extract_path, 'ffmpeg-master-latest-win64-gpl', 'bin', 'ffmpeg.exe')
 if not os.path.isfile(os.path.join(app_folder, 'ffmpeg.exe')):
-    if not os.path.isfile(ffmpeg_path):
+    if not os.path.isfile(ffmpeg_zip_path):
         # download from github
-        ffmpeg_url = 'https://github.com/Sixline/FireDM/releases/download/extra/ffmpeg_32bit.exe'
-        simpledownload(ffmpeg_url, fp=ffmpeg_path)
+        simpledownload('https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip', fp=ffmpeg_zip_path)
+        print('Download done! Extracting and moving ffmpeg.exe...')
+        zip_extract(z_fp=ffmpeg_zip_path, extract_folder=ffmpeg_extract_path)
     shutil.copy(ffmpeg_path, os.path.join(app_folder, 'ffmpeg.exe'))
+    print('Cleaning up...')
+    delete_folder(ffmpeg_extract_path, verbose=True)
+    delete_file(ffmpeg_zip_path, verbose=True)
 
 
-# write resource fields for exe files ----------------------------------------------------------------------------------
+# write resource fields for exe files
 # install pe-tools  https://github.com/avast/pe_tools
-cmd = f'{sys.executable} -m pip install pe_tools'
+cmd = f'"{sys.executable}" -m pip install pe_tools'
 subprocess.run(cmd, shell=True)
 
 for fname in (cmd_target_name, gui_target_name):
     fp = os.path.join(app_folder, fname)
     info = {
-        'Comments': 'https://github.com/Sixline/FireDM',
-        'CompanyName': 'FireDM',
-        'FileDescription': 'FireDM download manager',
+        'Comments': 'https://github.com/Sixline/VDM',
+        'CompanyName': 'Vortex Download Manager (VDM)',
+        'FileDescription': 'Vortex Download Manager (VDM)',
         'FileVersion': version,
         'InternalName': fname,
-        'LegalCopyright': '2019-2021 by Mahmoud Elshahat',
-        'LegalTrademarks': 'FireDM',
+        'LegalCopyright': 'copyright: (c) 2022 by Sixline - Original project, FireDM, by Mahmoud Elshahat',
+        'LegalTrademarks': 'Vortex Download Manager (VDM)',
         'OriginalFilename': fname,
-        'ProductName': 'FireDM',
+        'ProductName': 'Vortex Download Manager (VDM)',
         'ProductVersion': version,
-        'legalcopyright': 'copyright(c) 2019-2021 by Mahmoud Elshahat'
+        'legalcopyright': 'copyright: (c) 2022 by Sixline - Original project, FireDM, by Mahmoud Elshahat'
     }
 
     param = ' -V '.join([f'"{k}={v}"' for k, v in info.items()])
-    cmd = f'peresed -V {param} {fp}'
+    cmd = f'"{sys.executable}" -m pe_tools.peresed -V {param} "{fp}"'
     subprocess.run(cmd, shell=True)
 
+# Check if 32 or 64 bit for zip file name
+if sys.maxsize > 2**32:
+   win_arch = 64
+else:
+   win_arch = 32
+
 # create zip file
-output_filename = f'{APP_NAME}_{version}'
-print(f'prepare final zip filename: {output_filename}.zip')
-fname = shutil.make_archive(output_filename, 'zip', base_dir=APP_NAME)
+output_filename = f'{APP_NAME} {version}-win{win_arch}'
+print(f'Preparing zip file: {output_filename}.zip')
+fname = shutil.make_archive(output_filename, 'zip', root_dir=build_folder, base_dir='Vortex Download Manager')
+delete_folder(app_folder, verbose=True) 
 
-
-print('Done .....')
-
+print(f'Done! {project_folder}\{output_filename}.zip')
