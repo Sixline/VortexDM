@@ -1,3 +1,5 @@
+# OUTDATED - ON TO DO LIST TO UPDATE
+
 # FireDM user guide:
 Parts of these guidelines has been taken from an
 [article](https://www.ghacks.net/2020/08/13/firedm-is-an-open-source-download-manager-that-can-download-videos-and-playlists/)
