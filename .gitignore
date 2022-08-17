@@ -25,6 +25,3 @@
 !.github/
 !.github/workflows/
 !.github/workflows/*
-
-scripts/appimage/
-scripts/appimage/*
