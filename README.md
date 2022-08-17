@@ -5,9 +5,9 @@ The original creator removed the project repository from Github but left it on P
 Homepage: https://github.com/Sixline/VDM  
 PyPI Homepage: https://pypi.org/project/vortexdm
 
-![GitHub All Releases](https://img.shields.io/github/downloads/Sixline/VDM/total?color=orange&label=GitHub%20Releases)
+[![GitHub Releases](https://img.shields.io/github/downloads/Sixline/VDM/total?color=orange&label=GitHub%20Releases)](https://github.com/Sixline/VDM/releases)
 
-![GitHub issues](https://img.shields.io/github/issues-raw/Sixline/VDM?color=brightgreen) - ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/Sixline/VDM?color=blueviolet)
+[![GitHub Issues](https://img.shields.io/github/issues-raw/Sixline/VDM?color=brightgreen)](https://github.com/Sixline/VDM/issues) - [![GitHub Closed Issues](https://img.shields.io/github/issues-closed-raw/Sixline/VDM?color=blueviolet)](https://github.com/Sixline/VDM/issues?q=is%3Aissue+is%3Aclosed)
 
 ![Logo](https://raw.githubusercontent.com/Sixline/VDM/main/icons/vdm.png)
 Vortex Download Manager (VDM) is an open-source python Internet download manager with a high speed multi-connection engine. It downloads general files and videos from youtube and tons of other streaming websites.
