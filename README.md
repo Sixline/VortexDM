@@ -2,7 +2,7 @@
 
 The original creator removed the project repository from Github but left it on PyPI. The latest version they published there, 2022.4.14, I believe was purposely sabotaged to not work and anybody who accepted the update in FireDM would be left with the broken version. ~~If you want to install from PyPI install 2022.2.5 and don't update. https://pypi.org/project/FireDM/2022.2.5~~ 2022.2.5 is now gone from PyPI.
 
-Homepage: https://github.com/Sixline/VDM
+Homepage: https://github.com/Sixline/VDM  
 PyPI Homepage: https://pypi.org/project/vortexdm
 
 ![GitHub All Releases](https://img.shields.io/github/downloads/Sixline/VDM/total?color=orange&label=GitHub%20Releases)
@@ -47,11 +47,11 @@ Running the GUI: Refer to the user guide at https://github.com/Sixline/VDM/blob/
 # Portable VDM Versions:
   
 Run VDM without any installation (recommended) 
- - **Windows portable version** ([Download!](https://github.com/Sixline/VDM/releases/latest)):  
+ - **Windows Portable Version** ([Download!](https://github.com/Sixline/VDM/releases/latest)):  
    Available in .zip format.  
    Unzip and run VortexDM-GUI.exe, no installation required.
    
- - **Linux portable version** 
+ - **Linux Portable Version**  
   Removing this section for now as I am not familiar with building AppImages. Will revisit.
 
 ## Manually installing VDM with pip (Linux Only - Debian/Ubuntu Based Shown):
