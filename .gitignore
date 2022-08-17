@@ -13,22 +13,18 @@
 !README.md
 !requirements.txt
 !setup.py
+!pyproject.toml
 !.gitignore
 !.gitattributes
 !scripts/
-!scripts/utils.py
-!scripts/updatepkg.py
 !scripts/exe_build/
 !scripts/exe_build/exe-fullbuild.py
 !scripts/exe_build/exe-quickbuild.py
-!scripts/appimage/
-!scripts/appimage/appimage-fullbuild.sh
-!scripts/appimage/appimage-quickbuild.py
-!scripts/appimage/run.py
 !icons/
 !icons/*
 !.github/
 !.github/workflows/
 !.github/workflows/*
 
-
+scripts/appimage/
+scripts/appimage/*

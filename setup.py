@@ -41,7 +41,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/Sixline/VDM ",
     packages=setuptools.find_packages(),
-    keywords="vdm firedm internet download manager youtube hls pycurl curl youtube-dl tkinter",
+    keywords="vortexdm vdm firedm internet download manager youtube hls pycurl curl youtube-dl tkinter",
     project_urls={
         'Source': 'https://github.com/Sixline/VDM',
         'Tracker': 'https://github.com/Sixline/VDM/issues',

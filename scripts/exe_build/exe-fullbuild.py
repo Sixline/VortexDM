@@ -18,7 +18,7 @@ import subprocess
 
 from cx_Freeze import setup, Executable
 
-APP_NAME = 'Vortex Download Manager'
+APP_NAME = 'VortexDM'
 
 # to run setup.py directly
 if len(sys.argv) == 1:
@@ -124,14 +124,14 @@ for fname in (cmd_target_name, gui_target_name):
     fp = os.path.join(app_folder, fname)
     info = {
         'Comments': 'https://github.com/Sixline/VDM',
-        'CompanyName': 'Vortex Download Manager (VDM)',
-        'FileDescription': 'Vortex Download Manager (VDM)',
+        'CompanyName': 'Vortex Download Manager',
+        'FileDescription': 'Vortex Download Manager',
         'FileVersion': version,
         'InternalName': fname,
         'LegalCopyright': 'copyright: (c) 2022 by Sixline - Original project, FireDM, by Mahmoud Elshahat',
-        'LegalTrademarks': 'Vortex Download Manager (VDM)',
+        'LegalTrademarks': 'Vortex Download Manager',
         'OriginalFilename': fname,
-        'ProductName': 'Vortex Download Manager (VDM)',
+        'ProductName': 'Vortex Download Manager',
         'ProductVersion': version,
         'legalcopyright': 'copyright: (c) 2022 by Sixline - Original project, FireDM, by Mahmoud Elshahat'
     }
@@ -147,9 +147,9 @@ else:
    win_arch = 32
 
 # create zip file
-output_filename = f'{APP_NAME} {version}-win{win_arch}'
+output_filename = f'{APP_NAME}-{version}-win{win_arch}'
 print(f'Preparing zip file: {output_filename}.zip')
-fname = shutil.make_archive(output_filename, 'zip', root_dir=build_folder, base_dir='Vortex Download Manager')
+fname = shutil.make_archive(output_filename, 'zip', root_dir=build_folder, base_dir='VortexDM')
 delete_folder(app_folder, verbose=True) 
 
-print(f'Done! {project_folder}\{output_filename}.zip')
+print(f'Done! {output_filename}.zip')

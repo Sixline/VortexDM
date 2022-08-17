@@ -3,6 +3,7 @@
 The original creator removed the project repository from Github but left it on PyPI. The latest version they published there, 2022.4.14, I believe was purposely sabotaged to not work and anybody who accepted the update in FireDM would be left with the broken version. ~~If you want to install from PyPI install 2022.2.5 and don't update. https://pypi.org/project/FireDM/2022.2.5~~ 2022.2.5 is now gone from PyPI.
 
 Homepage: https://github.com/Sixline/VDM
+PyPI Homepage: https://pypi.org/project/vortexdm
 
 ![GitHub All Releases](https://img.shields.io/github/downloads/Sixline/VDM/total?color=orange&label=GitHub%20Releases)
 
@@ -43,61 +44,44 @@ Running in command line: show help by typing `vdm -h`
 
 Running the GUI: Refer to the user guide at https://github.com/Sixline/VDM/blob/master/docs/user_guide.md
 
-# Portable VDM versions:
+# Portable VDM Versions:
   
 Run VDM without any installation (recommended) 
  - **Windows portable version** ([Download!](https://github.com/Sixline/VDM/releases/latest)):  
-   available in .zip format.  
-   unzip, and run from VDM.exe, no installation required.
+   Available in .zip format.  
+   Unzip and run VortexDM-GUI.exe, no installation required.
    
- - **Linux portable version** ([Download!](https://github.com/Sixline/VDM/releases/latest)):   
-   available in .AppImage format.  
-   download file, then mark it as executable, and run it, no installation required,
-   Tested on Ubuntu.
-   note: ffmpeg is not included and must be installed separately
-   
-   mark file as executable by right clicking the file> Properties> Permissions> Allow executing file as a program, or from terminal by `chmod +x VDM_xxx.AppImage`
-   
-   To check for ffmpeg use this command:
-   ```sh
-    which ffmpeg
-   
-    # expected output if installed
-    /usr/bin/ffmpeg
-   ```
+ - **Linux portable version** 
+  Removing this section for now as I am not familiar with building AppImages. Will revisit.
 
-   if ffmpeg is missing you can install it by `sudo apt install ffmpeg` on debian based or `sudo pacman -S ffmpeg` on Arch based distros.
+## Manually installing VDM with pip (Linux Only - Debian/Ubuntu Based Shown):
+1- Check python version (minimum version required is 3.7): `python3 --version`
 
-## Manually installing VDM with pip (Linux Only):
-1- check python version (minimum version required is 3.7): `python3 --version`
-
-2- install required packages first:<br>
-- Linux, ubuntu:<br>
+2- Install required packages:
 ```sh
 sudo apt install ffmpeg libcurl4-openssl-dev libssl-dev python3-pip python3-pil python3-pil.imagetk python3-tk python3-dbus gir1.2-appindicator3-0.1
 sudo apt install fonts-symbola fonts-linuxlibertine fonts-inconsolata fonts-emojione
 ```
 
-3- install Vortex Download Manager using pip:<br>
+3- Install Vortex Download Manager using pip:
 
 ```sh
 python3 -m pip install vortexdm --user --upgrade --no-cache
 ```
 
-## Running from source code inside virtual environment (Linux):
-1- check python version (minimum version required is 3.7): `python3 --version`
+## Running from source code inside virtual environment (Linux Only - Debian/Ubuntu Based Shown):
+1- Check python version (minimum version required is 3.7): `python3 --version`
 
-2- install required packages first:
-- Linux, ubuntu:
+2- Install required packages:
 ```sh
 sudo apt install ffmpeg libcurl4-openssl-dev libssl-dev python3-pip python3-pil python3-pil.imagetk python3-tk python3-dbus gir1.2-appindicator3-0.1
 sudo apt install fonts-symbola fonts-linuxlibertine fonts-inconsolata fonts-emojione
 ```
 
-3- run below code to clone this repo, create virtual environment, install requirements, create launch script, and finally run VDM
+3- Run below code to clone this repo, create Python virtual environment, install the requirements, create launch script, and finally run VDM
 
 ```sh
-git clone --depth 1 https://github.com/VDM/VDM.git
+git clone --depth 1 https://github.com/Sixline/VDM/VDM.git
 python3 -m venv ./.env
 source ./.env/bin/activate
 python3 -m pip install -r ./VDM/requirements.txt
@@ -108,11 +92,11 @@ chmod +x ./vdm.sh
 ./vdm.sh
 ```
 
-> optionally create .desktop file and add VDM to your applications
+> Optionally create .desktop file and add VDM to your applications
 ```sh
 VDMLSPATH=$(realpath ./vdm.sh)
 echo "[Desktop Entry]
-Name=Vortex Download Manager
+Name=VortexDM
 GenericName=VDM
 Comment=Vortex Download Manager
 Exec=$VDMLSPATH
@@ -137,7 +121,7 @@ cp ./VDM/icons/vdm.png ~/.local/share/icons/hicolor/48x48/apps/vdm.png
 # Dependencies:
 - Python 3.7+: Tested with Python 3.10 on Windows and Ubuntu Linux
 - tkinter
-- [ffmpeg](https://www.ffmpeg.org/) : for merging audio with youtube DASH videos "it will be installed automatically on windows"
+- [ffmpeg](https://www.ffmpeg.org/) : for merging audio with youtube DASH videos
 - Fonts: (Linux X-server will raise an error if some fonts are missing especially emoji fonts, below are the 
 recommended fonts to be installed
 
@@ -160,10 +144,7 @@ recommended fonts to be installed
 **Note for PycURL:**
 For Windows users who wants to run from source or use pip:
 Unfortunately, PycURL removed binary versions for Windows and it now has to be built from source. See here: http://pycurl.io/docs/latest/install.html#windows
-Normal pip install i.e `python -m pip install pycurl` probably will fail on Windows, your best choice is to use the VDM standalone/portable exe version.
-
-For Linux users:
-There is no issue since most Linux distros have cURL preinstalled. PycURL will link with the libcurl library and get built without issues. Checked with python version 3.10.
+`python -m pip install pycurl` will fail on Windows, your best choice is to use the portable version.
 
 # How to contribute to this project:
 1- By testing the application and opening [new issues](https://github.com/Sixline/VDM/issues/new) for bugs, feature requests, or suggestions.
