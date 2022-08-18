@@ -105,15 +105,9 @@ for fname in ('vortexdm.exe', 'VortexDM-GUI.exe'):
     param = ' -V '.join([f'"{k}={v}"' for k, v in info.items()])
     cmd = f'"{sys.executable}" -m pe_tools.peresed -V {param} {fp}'
     subprocess.run(cmd, shell=True)
-        
-# Check if 32 or 64 bit for zip file name
-if sys.maxsize > 2**32:
-   win_arch = 64
-else:
-   win_arch = 32
 
 # create zip file
-output_filename = f'{APP_NAME}-{version}-win{win_arch}'
+output_filename = f'{APP_NAME}-{version}-win64'
 print(f'Preparing zip file: {output_filename}.zip')
 fname = shutil.make_archive(output_filename, 'zip', root_dir=build_folder, base_dir='VortexDM')
 delete_folder(app_folder, verbose=True) 
