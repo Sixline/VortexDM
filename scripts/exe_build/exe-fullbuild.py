@@ -9,6 +9,8 @@
     Module description:
         build an executable (exe) for windows using cx_freeze
         you should execute this module from command line using: "python exe-fullbuild.py build" on windows only.
+        
+        *Can be used for 32-bit Windows but you will need to find or build a 32-bit version of ffmpeg. BtbN doesn't auto-build a 32-bit version.*
 """
 
 import os
@@ -105,7 +107,7 @@ ffmpeg_extract_path = os.path.join(current_folder, 'ffmpeg-master-latest-win64-g
 ffmpeg_path = os.path.join(ffmpeg_extract_path, 'ffmpeg-master-latest-win64-gpl', 'bin', 'ffmpeg.exe')
 if not os.path.isfile(os.path.join(app_folder, 'ffmpeg.exe')):
     if not os.path.isfile(ffmpeg_zip_path):
-        # download from github
+        # Download 64-bit BtbN auto-build. BtbN doesn't auto-build a 32-bit version.
         simpledownload('https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip', fp=ffmpeg_zip_path)
         print('Download done! Extracting and moving ffmpeg.exe...')
         zip_extract(z_fp=ffmpeg_zip_path, extract_folder=ffmpeg_extract_path)
