@@ -119,7 +119,7 @@ cp ./VDM/icons/vdm.png ~/.local/share/icons/hicolor/48x48/apps/vdm.png
 - systray icon: depends on Gtk+3 and AppIndicator3 on linux, please refer to your distro guides on how to install these packages if you need systray to run properly
 
 # Dependencies:
-- Python 3.7+: Tested with Python 3.10 on Windows and Ubuntu Linux
+- Python 3.7+: Tested with Python 3.10 on Windows 10 and Ubuntu Linux
 - tkinter
 - [ffmpeg](https://www.ffmpeg.org/) : for merging audio with youtube DASH videos
 - Fonts: (Linux X-server will raise an error if some fonts are missing especially emoji fonts, below are the 
