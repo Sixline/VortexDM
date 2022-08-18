@@ -5,8 +5,6 @@ The original creator removed the project repository from Github but left it on P
 Homepage: https://github.com/Sixline/VDM  
 PyPI Homepage: https://pypi.org/project/vortexdm
 
-[![GitHub Releases](https://img.shields.io/github/downloads/Sixline/VDM/total?color=orange&label=GitHub%20Releases)](https://github.com/Sixline/VDM/releases)
-
 [![GitHub Issues](https://img.shields.io/github/issues-raw/Sixline/VDM?color=brightgreen)](https://github.com/Sixline/VDM/issues) - [![GitHub Closed Issues](https://img.shields.io/github/issues-closed-raw/Sixline/VDM?color=blueviolet)](https://github.com/Sixline/VDM/issues?q=is%3Aissue+is%3Aclosed)
 
 ![Logo](https://raw.githubusercontent.com/Sixline/VDM/main/icons/vdm.png)
@@ -48,7 +46,7 @@ Running the GUI: Refer to the user guide at https://github.com/Sixline/VDM/blob/
   
 Run VDM without any installation (recommended) 
  - **Windows Portable Version** ([Download!](https://github.com/Sixline/VDM/releases/latest)):  
-   Available in .zip format.  
+   Available in .zip format. Built with 64-bit Python 3.10+ and will only work on 64-bit Windows 10+.  
    Unzip and run VortexDM-GUI.exe, no installation required.
    
  - **Linux Portable Version**  
@@ -119,7 +117,7 @@ cp ./VDM/icons/vdm.png ~/.local/share/icons/hicolor/48x48/apps/vdm.png
 - systray icon: depends on Gtk+3 and AppIndicator3 on linux, please refer to your distro guides on how to install these packages if you need systray to run properly
 
 # Dependencies:
-- Python 3.7+: Tested with Python 3.10 on Windows 10 and Ubuntu Linux
+- Python 3.7+: Tested with Python 3.10+ on Windows 10 and Ubuntu Linux
 - tkinter
 - [ffmpeg](https://www.ffmpeg.org/) : for merging audio with youtube DASH videos
 - Fonts: (Linux X-server will raise an error if some fonts are missing especially emoji fonts, below are the 
