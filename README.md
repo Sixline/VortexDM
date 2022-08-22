@@ -108,14 +108,14 @@ cp ./VortexDM/icons/vortexdm.png ~/.local/share/icons/hicolor/48x48/apps/vortexd
 # Known Issues:
 - Linux Xserver will raise an error if some fonts are missing, especially emoji fonts - See Dependencies below
 
-- Mac - Tkinter - Can have issues depending on versions. See here: https://www.python.org/download/mac/tcltk/
+- Mac - Tkinter - Can have issues depending on versions. See here: https://www.python.org/download/mac/tcltk
 
 - Systray Icon: Depends on GTK 3+ and AppIndicator3 on Linux. Install these packages if you need systray to run properly.
 
 # Dependencies:
 - Python 3.7+: Tested with Python 3.10+ on Windows 10 and Ubuntu Linux
-- [Tkinter](https://docs.python.org/3/library/tkinter.html)
-- [FFmpeg](https://www.ffmpeg.org/) : for merging audio with DASH videos
+- [Tkinter](https://docs.python.org/3/library/tkinter.html): standard Python interface to the Tcl/Tk GUI toolkit.
+- [FFmpeg](https://www.ffmpeg.org/): for merging audio with DASH videos.
 - Fonts: (Linux Xserver will raise an error if some fonts are missing, especially emoji fonts. Below are the 
 recommended fonts to be installed.
 
