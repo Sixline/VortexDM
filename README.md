@@ -1,25 +1,21 @@
-# Renaming the project to Vortex Download Manager and will carry on where FireDM 2022.2.5 left off. Original project, FireDM, by Mahmoud Elshahat. RIP
-
-The original creator removed the project repository from Github but left it on PyPI. The latest version they published there, 2022.4.14, I believe was purposely sabotaged to not work and anybody who accepted the update in FireDM would be left with the broken version. ~~If you want to install from PyPI install 2022.2.5 and don't update. https://pypi.org/project/FireDM/2022.2.5~~ 2022.2.5 is now gone from PyPI.
-
-Homepage: https://github.com/Sixline/VDM  
+Homepage: https://github.com/Sixline/VortexDM  
 PyPI Homepage: https://pypi.org/project/vortexdm
 
-[![GitHub Issues](https://img.shields.io/github/issues-raw/Sixline/VDM?color=brightgreen)](https://github.com/Sixline/VDM/issues) - [![GitHub Closed Issues](https://img.shields.io/github/issues-closed-raw/Sixline/VDM?color=blueviolet)](https://github.com/Sixline/VDM/issues?q=is%3Aissue+is%3Aclosed)
+Original project, FireDM, by Mahmoud Elshahat.
 
-![Logo](https://raw.githubusercontent.com/Sixline/VDM/main/icons/vdm.png)
-Vortex Download Manager (VDM) is an open-source python Internet download manager with a high speed multi-connection engine. It downloads general files and videos from youtube and tons of other streaming websites.
+[![GitHub Issues](https://img.shields.io/github/issues-raw/Sixline/VortexDM?color=brightgreen)](https://github.com/Sixline/VortexDM/issues) - [![GitHub Closed Issues](https://img.shields.io/github/issues-closed-raw/Sixline/VortexDM?color=blueviolet)](https://github.com/Sixline/VortexDM/issues?q=is%3Aissue+is%3Aclosed)
 
-Developed in Python, based on "LibCurl", and "youtube_dl".
+![Logo](https://raw.githubusercontent.com/Sixline/VortexDM/main/icons/vortexdm.png)
+Vortex Download Manager (VortexDM) is an open-source Python Internet download manager with a high speed multi-connection engine. It downloads general files and videos. Developed in Python, based on "PycURL" and "youtube_dl".
 
 **Features**:
-* High download speeds based on LibCurl
+* High download speeds based on PycURL
 * Multi-connection downloading
 * Automatic file segmentation
 * Automatic refresh for dead links
 * Resume uncompleted downloads
-* Support for Youtube, and a lot of other stream websites using youtube-dl to fetch info and libcurl to download media
-* Download entire video, playlist, or selected videos
+* Support for YouTube and a lot of other stream websites using youtube-dl to fetch info and PycURL to download media
+* Download entire videos, playlists, or selected videos
 * Download fragmented video streams and encrypted/nonencrypted HLS media streams
 * Watch videos while downloading *some videos will have no audio until they finish downloading*
 * Download video subtitles
@@ -37,22 +33,22 @@ Developed in Python, based on "LibCurl", and "youtube_dl".
 * Shell commands or computer shutdown on download completion
 * Control number of the concurrent downloads and maximum connections
 
-# How to use VDM:
-Running in command line: show help by typing `vdm -h`
+# How to use VortexDM:
+Running in command line: show help by typing `vortexdm -h`
 
-Running the GUI: Refer to the user guide at https://github.com/Sixline/VDM/blob/master/docs/user_guide.md
+Running the GUI: Refer to the user guide at https://github.com/Sixline/VortexDM/blob/master/docs/user_guide.md
 
-# Portable VDM Versions:
+# Portable VortexDM Versions:
   
-Run VDM without any installation (recommended) 
- - **Windows Portable Version** ([Download!](https://github.com/Sixline/VDM/releases/latest)):  
+Run VortexDM without any installation (recommended) 
+ - **Windows Portable Version** ([Download!](https://github.com/Sixline/VortexDM/releases/latest)):  
    Available in .zip format. Built with 64-bit Python 3.10+ and will only work on 64-bit Windows 10+.  
    Unzip and run VortexDM-GUI.exe, no installation required.
    
  - **Linux Portable Version**  
   Removing this section for now as I am not familiar with building AppImages. Will revisit.
 
-## Manually installing VDM with pip (Linux Only - Debian/Ubuntu Based Shown):
+## Manually installing VortexDM with pip (Linux Only - Debian/Ubuntu Based Shown):
 1- Check python version (minimum version required is 3.7): `python3 --version`
 
 2- Install required packages:
@@ -67,7 +63,7 @@ sudo apt install fonts-symbola fonts-linuxlibertine fonts-inconsolata fonts-emoj
 python3 -m pip install vortexdm --user --upgrade --no-cache
 ```
 
-## Running from source code inside virtual environment (Linux Only - Debian/Ubuntu Based Shown):
+## Running from source code inside a Python virtual environment (Linux Only - Debian/Ubuntu Based Shown):
 1- Check python version (minimum version required is 3.7): `python3 --version`
 
 2- Install required packages:
@@ -76,52 +72,52 @@ sudo apt install ffmpeg libcurl4-openssl-dev libssl-dev python3-pip python3-pil 
 sudo apt install fonts-symbola fonts-linuxlibertine fonts-inconsolata fonts-emojione
 ```
 
-3- Run below code to clone this repo, create Python virtual environment, install the requirements, create launch script, and finally run VDM
+3- Run below code to clone this repo, create a Python virtual environment, install the requirements, create launch script, and finally run VortexDM
 
 ```sh
-git clone --depth 1 https://github.com/Sixline/VDM/VDM.git
+git clone https://github.com/Sixline/VortexDM
 python3 -m venv ./.env
 source ./.env/bin/activate
-python3 -m pip install -r ./VDM/requirements.txt
+python3 -m pip install -r ./VortexDM/requirements.txt
 echo "source ./.env/bin/activate
-python3 ./VDM/vdm.py \$@
-" > vdm.sh
-chmod +x ./vdm.sh
-./vdm.sh
+python3 ./VortexDM/vortexdm.py \$@
+" > vortexdm.sh
+chmod +x ./vortexdm.sh
+./vortexdm.sh
 ```
 
-> Optionally create .desktop file and add VDM to your applications
+> Optionally create .desktop file and add VortexDM to your applications
 ```sh
-VDMLSPATH=$(realpath ./vdm.sh)
+VortexDMLSPATH=$(realpath ./vortexdm.sh)
 echo "[Desktop Entry]
 Name=VortexDM
-GenericName=VDM
+GenericName=VortexDM
 Comment=Vortex Download Manager
-Exec=$VDMLSPATH
-Icon=vdm
+Exec=$VortexDMLSPATH
+Icon=vortexdm
 Terminal=false
 Type=Application
 Categories=Network;
 Keywords=Internet;download
-" > VDM.desktop
-cp ./VDM.desktop ~/.local/share/applications/
+" > VortexDM.desktop
+cp ./VortexDM.desktop ~/.local/share/applications/
 mkdir -p ~/.local/share/icons/hicolor/48x48/apps/
-cp ./VDM/icons/vdm.png ~/.local/share/icons/hicolor/48x48/apps/vdm.png
+cp ./VortexDM/icons/vortexdm.png ~/.local/share/icons/hicolor/48x48/apps/vortexdm.png
 ```
 
 # Known Issues:
-- Linux X-server will raise an error if some fonts are missing especially emoji fonts - See Dependencies below
+- Linux Xserver will raise an error if some fonts are missing, especially emoji fonts - See Dependencies below
 
-- Mac - Tkinter, as mentioned in "python.org" the Apple-supplied Tcl/Tk 8.5 has serious bugs that can cause application crashes. If you wish to use Tkinter, do not use the Apple-supplied Pythons. Instead, install and use a newer version of Python from python.org or a third-party distributor that supplies or links with a newer version of Tcl/Tk.
+- Mac - Tkinter - Can have issues depending on versions. See here: https://www.python.org/download/mac/tcltk/
 
-- systray icon: depends on Gtk+3 and AppIndicator3 on linux, please refer to your distro guides on how to install these packages if you need systray to run properly
+- Systray Icon: Depends on GTK 3+ and AppIndicator3 on Linux. Install these packages if you need systray to run properly.
 
 # Dependencies:
 - Python 3.7+: Tested with Python 3.10+ on Windows 10 and Ubuntu Linux
-- tkinter
-- [ffmpeg](https://www.ffmpeg.org/) : for merging audio with youtube DASH videos
-- Fonts: (Linux X-server will raise an error if some fonts are missing especially emoji fonts, below are the 
-recommended fonts to be installed
+- [Tkinter](https://docs.python.org/3/library/tkinter.html)
+- [FFmpeg](https://www.ffmpeg.org/) : for merging audio with DASH videos
+- Fonts: (Linux Xserver will raise an error if some fonts are missing, especially emoji fonts. Below are the 
+recommended fonts to be installed.
 
     ```
     ttf-linux-libertine 
@@ -130,14 +126,14 @@ recommended fonts to be installed
     ttf-symbola
     noto-fonts
     ```
-- [pycurl](http://pycurl.io/docs/latest/index.html): is a Python interface to libcurl / curl as our download engine,
-- [youtube_dl](https://github.com/ytdl-org/youtube-dl): famous youtube downloader, limited use for meta information extraction only but videos are downloaded using pycurl
-- [yt_dlp](https://github.com/yt-dlp/yt-dlp): a fork of youtube-dlc which is inturn a fork of youtube-dl
-- [certifi](https://github.com/certifi/python-certifi): required by 'pycurl' for validating the trustworthiness of SSL certificates,
-- [plyer](https://github.com/kivy/plyer): for systray area notification.
-- [awesometkinter](https://github.com/Aboghazala/AwesomeTkinter): for application gui.
-- [pillow](https://python-pillow.org/): imaging library for python
-- [pystray](https://github.com/moses-palmer/pystray): for systray icon
+- [PycURL](http://pycurl.io/docs/latest/index.html): a Python interface to libcurl, the multiprotocol file transfer library. Used as the download engine.
+- [youtube_dl](https://github.com/ytdl-org/youtube-dl): Famous YouTube downloader, limited use for meta information extraction only but videos are downloaded using PycURL.
+- [yt_dlp](https://github.com/yt-dlp/yt-dlp): yt-dlp is a youtube-dl fork based on the now inactive youtube-dlc.
+- [Certifi](https://github.com/certifi/python-certifi): required by PycURL for validating the trustworthiness of SSL certificates.
+- [Plyer](https://github.com/kivy/plyer): for systray area notification.
+- [AwesomeTkinter](https://github.com/Aboghazala/AwesomeTkinter): for application GUI.
+- [Pillow](https://python-pillow.org): the friendly PIL fork. PIL is an acronym for Python Imaging Library.
+- [pystray](https://github.com/moses-palmer/pystray): for systray icon.
 
 **Note for PycURL:**
 For Windows users who wants to run from source or use pip:
@@ -145,13 +141,13 @@ Unfortunately, PycURL removed binary versions for Windows and it now has to be b
 `python -m pip install pycurl` will fail on Windows, your best choice is to use the portable version.
 
 # How to contribute to this project:
-1- By testing the application and opening [new issues](https://github.com/Sixline/VDM/issues/new) for bugs, feature requests, or suggestions.
+1- By testing the application and opening [new issues](https://github.com/Sixline/VortexDM/issues/new) for bugs, feature requests, or suggestions.
 
-2- Check the [Developer Guidelines](https://github.com/Sixline/VDM/blob/master/docs/developer_guide.md).
+2- Check the [Developer Guidelines](https://github.com/Sixline/VortexDM/blob/master/docs/developer_guide.md).
 
-3- Check [open issues](https://github.com/Sixline/VDM/issues?q=is%3Aopen+is%3Aissue) and see if you can help.
+3- Check [open issues](https://github.com/Sixline/VortexDM/issues?q=is%3Aopen+is%3Aissue) and see if you can help.
 
 4- Fork this repo and make a pull request.
 
 # Contributors:
-Please check [contributors.md](https://github.com/Sixline/VDM/blob/master/contributors.md) for a list of contributors.
+Please check [contributors.md](https://github.com/Sixline/VortexDM/blob/master/contributors.md) for a list of contributors.
