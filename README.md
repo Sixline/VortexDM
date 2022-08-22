@@ -1,12 +1,12 @@
-Homepage: https://github.com/Sixline/VortexDM  
-PyPI Homepage: https://pypi.org/project/vortexdm
+![Logo](https://raw.githubusercontent.com/Sixline/VortexDM/main/icons/vortexdm.png)
+Vortex Download Manager (VortexDM) is an open-source Python Internet download manager with a high speed multi-connection engine. It downloads general files and videos. Developed in Python, based on "PycURL" and "youtube_dl".
 
 Original project, FireDM, by Mahmoud Elshahat.
 
-[![GitHub Issues](https://img.shields.io/github/issues-raw/Sixline/VortexDM?color=brightgreen)](https://github.com/Sixline/VortexDM/issues) - [![GitHub Closed Issues](https://img.shields.io/github/issues-closed-raw/Sixline/VortexDM?color=blueviolet)](https://github.com/Sixline/VortexDM/issues?q=is%3Aissue+is%3Aclosed)
+Homepage: https://github.com/Sixline/VortexDM  
+PyPI Homepage: https://pypi.org/project/vortexdm
 
-![Logo](https://raw.githubusercontent.com/Sixline/VortexDM/main/icons/vortexdm.png)
-Vortex Download Manager (VortexDM) is an open-source Python Internet download manager with a high speed multi-connection engine. It downloads general files and videos. Developed in Python, based on "PycURL" and "youtube_dl".
+[![GitHub Issues](https://img.shields.io/github/issues-raw/Sixline/VortexDM?color=brightgreen)](https://github.com/Sixline/VortexDM/issues) - [![GitHub Closed Issues](https://img.shields.io/github/issues-closed-raw/Sixline/VortexDM?color=blueviolet)](https://github.com/Sixline/VortexDM/issues?q=is%3Aissue+is%3Aclosed)
 
 **Features**:
 * High download speeds based on PycURL
