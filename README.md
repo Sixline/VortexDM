@@ -72,7 +72,12 @@ sudo apt install ffmpeg libcurl4-openssl-dev libssl-dev python3-pip python3-pil 
 sudo apt install fonts-symbola fonts-linuxlibertine fonts-inconsolata fonts-emojione
 ```
 
-3- Run below code to clone this repo, create a Python virtual environment, install the requirements, create launch script, and finally run VortexDM
+3- Run below code to do the following:
+  a- Clone this repo, 
+  b- Create Python virtual environment,
+  c- Install the requirements,
+  d- Create launch script, 
+  e- Run VortexDM.
 
 ```sh
 git clone https://github.com/Sixline/VortexDM
@@ -80,8 +85,7 @@ python3 -m venv ./.env
 source ./.env/bin/activate
 python3 -m pip install -r ./VortexDM/requirements.txt
 echo "source ./.env/bin/activate
-python3 ./VortexDM/vortexdm.py \$@
-" > vortexdm.sh
+python3 ./VortexDM/vortexdm.py \$@ " > vortexdm.sh
 chmod +x ./vortexdm.sh
 ./vortexdm.sh
 ```
