@@ -9,7 +9,7 @@ PyPI Homepage: https://pypi.org/project/vortexdm
 [![GitHub Issues](https://img.shields.io/github/issues-raw/Sixline/VortexDM?color=brightgreen)](https://github.com/Sixline/VortexDM/issues) - [![GitHub Closed Issues](https://img.shields.io/github/issues-closed-raw/Sixline/VortexDM?color=blueviolet)](https://github.com/Sixline/VortexDM/issues?q=is%3Aissue+is%3Aclosed)
 
 **Features**:
-* High download speeds based on PycURL
+* High download speeds - based on PycURL
 * Multi-connection downloading
 * Automatic file segmentation
 * Automatic refresh for dead links
@@ -20,7 +20,7 @@ PyPI Homepage: https://pypi.org/project/vortexdm
 * Watch videos while downloading *some videos will have no audio until they finish downloading*
 * Download video subtitles
 * Write video metadata to downloaded files
-* Checking for application updates
+* Built-in updater
 * Scheduled downloads
 * Re-using existing connections
 * Clipboard monitor
@@ -42,14 +42,14 @@ Running the GUI: Refer to the user guide at https://github.com/Sixline/VortexDM/
   
 Run VortexDM without any installation (recommended) 
  - **Windows Portable Version** ([Download!](https://github.com/Sixline/VortexDM/releases/latest)):  
-   Available in .zip format. Built with 64-bit Python 3.10+ and will only work on 64-bit Windows 10+.  
+   Available in .zip format. Built with 64-bit Python 3.11+ and will only work on 64-bit Windows 10+.  
    Unzip and run VortexDM-GUI.exe, no installation required.
    
  - **Linux Portable Version**  
   Removing this section for now as I am not familiar with building AppImages. Will revisit.
 
 ## Manually installing VortexDM with pip (Linux Only - Debian/Ubuntu Based Shown):
-1- Check python version (minimum version required is 3.7): `python3 --version`
+1- Check python version (minimum version required is 3.8): `python3 --version`
 
 2- Install required packages:
 ```sh
@@ -64,7 +64,7 @@ python3 -m pip install vortexdm --user --upgrade --no-cache
 ```
 
 ## Running from source code inside a Python virtual environment (Linux Only - Debian/Ubuntu Based Shown):
-1- Check python version (minimum version required is 3.7): `python3 --version`
+1- Check python version (minimum version required is 3.8): `python3 --version`
 
 2- Install required packages:
 ```sh
@@ -106,17 +106,17 @@ cp ./VortexDM/icons/vortexdm.png ~/.local/share/icons/hicolor/48x48/apps/vortexd
 ```
 
 # Known Issues:
-- Linux Xserver will raise an error if some fonts are missing, especially emoji fonts - See Dependencies below
+- Linux X Server will raise an error if some fonts are missing, especially emoji fonts - See Dependencies below
 
 - Mac - Tkinter - Can have issues depending on versions. See here: https://www.python.org/download/mac/tcltk
 
 - Systray Icon: Depends on GTK 3+ and AppIndicator3 on Linux. Install these packages if you need systray to run properly.
 
 # Dependencies:
-- Python 3.7+: Tested with Python 3.10+ on Windows 10 and Ubuntu Linux
+- Python 3.8+: Tested with Python 3.11+ on Windows 10 and Ubuntu Linux
 - [Tkinter](https://docs.python.org/3/library/tkinter.html): standard Python interface to the Tcl/Tk GUI toolkit.
 - [FFmpeg](https://www.ffmpeg.org/): for merging audio with DASH videos.
-- Fonts: (Linux Xserver will raise an error if some fonts are missing, especially emoji fonts. Below are the 
+- Fonts: (Linux X Server will raise an error if some fonts are missing, especially emoji fonts. Below are the 
 recommended fonts to be installed.
 
     ```

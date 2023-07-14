@@ -1,7 +1,7 @@
 """
-    Vortex Download Manager (VDM)
+    Vortex Download Manager (VortexDM)
 
-    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    A multi-connection internet download manager, based on "PycURL" and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
     :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
     :license: GNU GPLv3, see LICENSE.md for more details.
@@ -32,7 +32,7 @@ try:
 except:
     print('pycurl not found')
 
-__package__ = 'vdm'
+__package__ = 'vortexdm'
 
 from . import config
 
@@ -882,7 +882,7 @@ def is_pkg_exist(pkg_name):
     Args:
         pkg_name(str): package name, spaces will be stripped
 
-    >>> is_pkg_exist('   vdm  ')
+    >>> is_pkg_exist('   vortexdm  ')
     True
     >>> is_pkg_exist('blahx123456789x')
     False
@@ -1216,7 +1216,7 @@ def get_pkg_version(pkg):
             pass
 
     if not version:
-        # parse .dist-info folder e.g: youtube_dl-2021.5.16.dist-info or VDM-2021.2.9.dist-info
+        # parse .dist-info folder e.g: youtube_dl-2021.5.16.dist-info or VortexDM-2021.2.9.dist-info
         try:
             parent_folder = os.path.dirname(pkg_path)
             pkg_name = os.path.basename(pkg_path)
@@ -1282,7 +1282,7 @@ def check_write_permission(target_folder, create_dirs=True):
         if create_dirs:
             os.makedirs(target_folder, exist_ok=True)
 
-        fn = 'vdm-testfile'
+        fn = 'vortexdm-testfile'
         existing_names = os.listdir(target_folder)
         if fn in existing_names:
             fn = auto_rename(fn, existing_names)

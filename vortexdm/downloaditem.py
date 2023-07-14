@@ -1,7 +1,7 @@
 """
-    Vortex Download Manager (VDM)
+    Vortex Download Manager (VortexDM)
 
-    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    A multi-connection internet download manager, based on "PycURL" and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
     :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
     :license: GNU GPLv3, see LICENSE.md for more details.
@@ -402,7 +402,7 @@ class DownloadItem:
     @property
     def temp_folder(self):
         fp = self.alternative_temp_folder if os.path.isdir(self.alternative_temp_folder) else self.folder
-        name = f'vdm_{self.uid}'
+        name = f'vortexdm_{self.uid}'
         return os.path.join(fp, name)
 
     @property

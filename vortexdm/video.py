@@ -1,7 +1,7 @@
 """
-    Vortex Download Manager (VDM)
+    Vortex Download Manager (VortexDM)
 
-    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    A multi-connection internet download manager, based on "PycURL" and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
     :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
     :license: GNU GPLv3, see LICENSE.md for more details.
@@ -84,7 +84,7 @@ def get_ytdl_options():
     ydl_opts['writeautomaticsub'] = True
 
     # if config.log_level >= 3:
-        # ydl_opts['verbose'] = True  # it make problem with Frozen VDM, extractor doesn't work
+        # ydl_opts['verbose'] = True  # it make problem with Frozen VortexDM, extractor doesn't work
     # elif config.log_level <= 1:
     #     ydl_opts['quiet'] = True  # it doesn't work
 
@@ -729,7 +729,7 @@ def load_extractor_engines(reload=False):
 
         # calculate loading time
         load_time = time.time() - start
-        log(f'youtube_dl version: {config.youtube_dl_version}, load_time= {int(load_time)} seconds', log_level=2)
+        log(f'youtube_dl Version: {config.youtube_dl_version}, load_time= {int(load_time)} seconds', log_level=2)
 
         # get a random user agent and update headers
         if not config.custom_user_agent:
@@ -756,7 +756,7 @@ def load_extractor_engines(reload=False):
 
         # calculate loading time
         load_time = time.time() - start
-        log(f'yt_dlp version: {config.yt_dlp_version}, load_time= {int(load_time)} seconds', log_level=2)
+        log(f'yt_dlp Version: {config.yt_dlp_version}, load_time= {int(load_time)} seconds', log_level=2)
 
         # set default extractor
         if config.active_video_extractor == 'yt_dlp':

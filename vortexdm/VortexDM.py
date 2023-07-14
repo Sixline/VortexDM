@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 """
-    Vortex Download Manager (VDM)
+    Vortex Download Manager (VortexDM)
 
-    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    A multi-connection internet download manager, based on "PycURL" and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
     :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
     :license: GNU GPLv3, see LICENSE.md for more details.
@@ -19,14 +19,14 @@ import argparse
 import re
 import signal
 
-# This code should stay on top to handle relative imports in case of direct call of VDM.py
+# This code should stay on top to handle relative imports in case of direct call of VortexDM.py
 if __package__ is None:
     path = os.path.realpath(os.path.abspath(__file__))
     sys.path.insert(0, os.path.dirname(path))
     sys.path.insert(0, os.path.dirname(os.path.dirname(path)))
     
-    __package__ = 'vdm'
-    import vdm
+    __package__ = 'vortexdm'
+    import vortexdm
 
 
 # local modules
@@ -45,11 +45,12 @@ def pars_args(arguments):
         arguments(list): list contains arguments, could be sys.argv[1:] i.e. without script name
     """
 
-    description = """Vortex Download Manager (VDM) is an open-source python Internet download manager
-        with a high speed multi-connection engine. It downloads general files and videos from youtube 
-        and tons of other streaming websites. 
-        Developed in Python, based on "LibCurl", "youtube_dl", and "Tkinter". 
-        Source: https://github.com/Sixline/VDM """
+    description = """Vortex Download Manager (VortexDM) - An open-source Python 
+        Internet download manager with a high speed multi-connection engine. It 
+        downloads general files and videos. 
+        Developed in Python, based on "PycURL" and "youtube_dl".
+        GNU GPLv3, see LICENSE.md for more details. 
+        Source: https://github.com/Sixline/VortexDM"""
 
     def iterable(txt):
         # process iterable in arguments, e.g. tuple or list,
@@ -69,11 +70,11 @@ def pars_args(arguments):
     # and prevent default value overwrite in config module
 
     parser = argparse.ArgumentParser(
-        prog='vdm',
+        prog='vortexdm',
         description=description,
         epilog='copyright: (c) 2022 Vortex Download Manager. license: GNU GPLv3, see LICENSE.md file for more details.'
                'Original project, FireDM, by Mahmoud Elshahat'
-               'Isuues: https://github.com/Sixline/VDM/issues',
+               'Isuues: https://github.com/Sixline/VortexDM/issues',
         usage='\n'
               '%(prog)s [OPTIONS] URL1 URL2 URL3 \n'
               'example: %(prog)s "https://somesite.com/somevideo" "https://somesite.com/anothervideo"\n'
@@ -95,7 +96,7 @@ def pars_args(arguments):
         help='show this help message and exit')
     general.add_argument(
         '-v', '--version',
-        action='version', version='VDM version: ' + __version__,
+        action='version', version='VortexDM Version: ' + __version__,
         help='Print program version and exit')
     general.add_argument(
         '--show-settings',
@@ -109,7 +110,7 @@ def pars_args(arguments):
     general.add_argument(
         '--ignore-config', dest='ignore_config', default=argparse.SUPPRESS,
         action='store_true',
-        help='Do not load settings from config file. in ~/.config/VDM/ or (APPDATA/VDM/ on Windows)')
+        help='Do not load settings from config file. in ~/.config/VortexDM/ or (APPDATA/VortexDM/ on Windows)')
     general.add_argument(
         '--dlist', dest='ignore_dlist',
         action='store_false', default=argparse.SUPPRESS,
@@ -245,7 +246,7 @@ def pars_args(arguments):
     appupdate.add_argument(
         '--update',
         action='store_true', dest='update_self', default=argparse.SUPPRESS,
-        help='Update this Application and video libraries to latest version.')
+        help='Update this application and video libraries to latest version.')
 
     # -------------------------------------------------------------------------------------Downloader Options-----------
     downloader = parser.add_argument_group(title='Downloader Options')

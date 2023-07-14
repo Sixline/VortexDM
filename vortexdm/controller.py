@@ -1,7 +1,7 @@
 """
-    Vortex Download Manager (VDM)
+    Vortex Download Manager (VortexDM)
 
-    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    A multi-connection internet download manager, based on "PycURL" and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
     :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
     :license: GNU GPLv3, see LICENSE.md for more details.
@@ -37,7 +37,6 @@ from .brain import brain
 from . import video
 from .video import get_media_info, process_video
 from .model import ObservableDownloadItem, ObservableVideo
-
 
 def set_option(**kwargs):
     """set global setting option(s) in config.py"""
@@ -106,7 +105,7 @@ def check_ffmpeg():
                 # ffmpeg version 4.3.2-0+deb11u1ubuntu1 Copyright (c) 2000-2021 the FFmpeg developers
                 match = re.match(r'ffmpeg version (.*?) Copyright', out, re.IGNORECASE)
                 config.ffmpeg_version = match.groups()[0]
-                msg += f', version: {config.ffmpeg_version}'
+                msg += f', Version: {config.ffmpeg_version}'
             except:
                 pass
         log(msg, log_level=2)
@@ -201,7 +200,7 @@ def download_thumbnail(d):
 
 def log_runtime_info():
     """Print useful information about the system"""
-    log('-' * 20, 'VDM', '-' * 20)
+    log('-' * 20, 'VortexDM', '-' * 20)
 
     if config.isappimage:
         release_type = 'AppImage'
@@ -210,11 +209,11 @@ def log_runtime_info():
     else:
         release_type = 'Non-Frozen'
 
-    log('Starting VDM version:', config.APP_VERSION, release_type)
-    log('operating system:', config.operating_system_info)
-    log('Python version:', sys.version)
-    log('current working directory:', config.current_directory)
-    log(f'FFMPEG: {config.ffmpeg_actual_path}, version: {config.ffmpeg_version}')
+    log('Starting VortexDM Version:', config.APP_VERSION, release_type)
+    log('Operating System:', config.operating_system_info)
+    log('Python Version:', sys.version)
+    log('Current working directory:', config.current_directory)
+    log(f'FFmpeg: {config.ffmpeg_actual_path}, Version: {config.ffmpeg_version}')
 
 
 def create_video_playlist(url, ytdloptions=None, interrupt=False):
@@ -790,7 +789,7 @@ class Controller:
                         # download ffmpeg from github
                         self._download_ffmpeg()
                 else:
-                    log('FFMPEG is missing', start='', showpopup=showpopup)
+                    log('FFmpeg is missing.', start='', showpopup=showpopup)
 
                 return False
 
@@ -800,7 +799,7 @@ class Controller:
         # validate destination folder for existence and permissions
         try:
             # write test file to download folder
-            test_file_path = os.path.join(folder, 'test_file_.VDM')
+            test_file_path = os.path.join(folder, 'test_file_.VortexDM')
             # skip test in case test_file already created by another thread
             if not os.path.isfile(test_file_path):
                 with open(test_file_path, 'w') as f:
@@ -1026,19 +1025,32 @@ class Controller:
         # ends with 86 for 32 bit and 64 for 64 bit i.e. Win7-64: AMD64 and Vista-32: x86
         if platform.machine().endswith('64'):
             # 64 bit link
-            url = 'https://github.com/Sixline/VDM/releases/download/extra/ffmpeg_64bit.exe'
+            url = 'https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip'
         else:
-            # 32 bit link
-            url = 'https://github.com/Sixline/VDM/releases/download/extra/ffmpeg_32bit.exe'
+            # 32 bit - BtbN doesn't auto-build a 32-bit version.
+            log('BtbN doesn\'t auto-build a 32-bit version of FFmpeg.exe. You will need to source a version yourself. :(', showpopup=showpopup)
+            return
 
-        log('downloading: ', url)
+        log('Downloading: ', url)
 
         # create a download object, will save ffmpeg in setting folder
         d = ObservableDownloadItem(url=url, folder=config.ffmpeg_download_folder)
         d.update(url)
-        d.name = 'ffmpeg.exe'
+        d.name = 'ffmpeg-master-latest-win64-gpl.zip'
 
-        self.download(d, silent=True)
+        self.download(d, silent=False)
+
+        # extract zip, move ffmpeg.exe from extracted folder, delete zip file and extracted folder
+        log('Download done! Extracting and moving ffmpeg.exe...')
+        ffmpeg_zip_path = os.path.join(config.ffmpeg_download_folder, 'ffmpeg-master-latest-win64-gpl.zip')
+        ffmpeg_extract_path = os.path.join(config.ffmpeg_download_folder, 'ffmpeg-master-latest-win64-gpl')
+        ffmpeg_path = os.path.join(ffmpeg_extract_path, 'ffmpeg-master-latest-win64-gpl', 'bin', 'ffmpeg.exe')
+        zip_extract(z_fp=ffmpeg_zip_path, extract_folder=ffmpeg_extract_path)
+        shutil.copy(ffmpeg_path, os.path.join(config.ffmpeg_download_folder, 'ffmpeg.exe'))
+        log('Cleaning up...')
+        delete_folder(ffmpeg_extract_path, verbose=True)
+        delete_file(ffmpeg_zip_path, verbose=True)
+        log('ffmpeg.exe downloaded!', showpopup=showpopup)
 
     def autodownload(self, url, **kwargs):
         """download file automatically without user intervention
@@ -1098,7 +1110,7 @@ class Controller:
     # region Application update
     @threaded
     def check_for_update(self, signal_id=None, wait=False, timeout=30, **kwargs):
-        """check for newer version of VDM, youtube-dl, and yt_dlp
+        """check for newer version of VortexDM, youtube-dl, and yt_dlp
         Args:
             signal_id(any): signal a view when this function done
             wait(bool): wait for youtube-dl and ytdlp to load
@@ -1115,14 +1127,14 @@ class Controller:
         if wait:
             c = 1
             while config.youtube_dl_version is None or config.yt_dlp_version is None:
-                log('\ryoutube-dl and ytdlp still loading, please wait', '.' * c, end='')
+                log('\ryoutube-dl and yt_dlp still loading, please wait', '.' * c, end='')
                 c += 1
                 if c > timeout:
                     break
                 time.sleep(1)
             log()
 
-        info = {'vdm': {'current_version': config.APP_VERSION, 'latest_version': None},
+        info = {'vortexdm': {'current_version': config.APP_VERSION, 'latest_version': None},
                 'youtube_dl': {'current_version': config.youtube_dl_version, 'latest_version': None},
                 'yt_dlp': {'current_version': config.yt_dlp_version, 'latest_version': None},
                 'awesometkinter': {'current_version': config.atk_version, 'latest_version': None},
@@ -1148,7 +1160,7 @@ class Controller:
             t.join()
 
         # update
-        msg = 'Check for update Status:\n\n'
+        msg = 'Update Status:\n\n'
         new_pkgs = []
         for pkg in pkgs:
             pkg_info = info[pkg]
@@ -1169,28 +1181,28 @@ class Controller:
             msg += 'Do you want to update now? \n'
             options = ['Update', 'Cancel']
 
-            # show update notes for vdm
-            if 'vdm' in new_pkgs:
-                log('getting VDM changelog ....')
+            # show update notes for vortexdm
+            if 'vortexdm' in new_pkgs:
+                log('getting VortexDM changelog ....')
 
                 # download change log file
-                url = 'https://github.com/Sixline/VDM/raw/master/ChangeLog.txt'
+                url = 'https://github.com/Sixline/VortexDM/raw/master/ChangeLog.txt'
                 changelog = download(url, verbose=False)
 
                 # verify server didn't send html page
                 if changelog and '<!DOCTYPE html>' not in changelog:
                     msg += '\n\n\n'
-                    msg += 'VDM Change Log:\n'
+                    msg += 'VortexDM Change Log:\n'
                     msg += changelog
 
             res = self.get_user_response(msg, options)
             if res == options[0]:
 
                 # check write permission
-                tf = update.get_target_folder('vdm')
+                tf = update.get_target_folder('vortexdm')
                 if tf and not check_write_permission(tf):
                     log('Permission error:',
-                        'Run VDM as admin to install updates', showpopup=True)
+                        'Run VortexDM as admin to install updates', showpopup=True)
                     return
 
                 # start updating modules
@@ -1230,14 +1242,14 @@ class Controller:
 
     @threaded
     def auto_check_for_update(self):
-        """auto check for vdm update"""
+        """auto check for vortexdm update"""
         if config.check_for_update and not config.disable_update_feature:
             today = date.today()
 
             if update.parse_version(config.APP_VERSION) > update.parse_version(config.updater_version):
                 config.last_update_check = (today.year, today.month, today.day)
                 config.updater_version = config.APP_VERSION
-                # log('Running newer VDM version, reset last_update_check')
+                # log('Running newer VortexDM version, reset last_update_check')
 
             else:
                 try:
@@ -1248,7 +1260,7 @@ class Controller:
 
                 delta = today - last_check
                 if delta.days >= config.update_frequency:
-                    res = self.get_user_response(f'Check for VDM update?\nLast check was {delta.days} days ago',
+                    res = self.get_user_response(f'Check for VortexDM update?\nLast check was {delta.days} days ago',
                                                  options=['Ok', 'Cancel'])
                     if res == 'Ok':
                         self.check_for_update()
@@ -1259,7 +1271,7 @@ class Controller:
             tf = update.get_target_folder(pkg)
             if tf and not check_write_permission(tf):
                 log('Permission error:',
-                    'Run VDM as admin to rollback updates', showpopup=True)
+                    'Run VortexDM as admin to rollback updates', showpopup=True)
                 return
 
             run_thread(update.rollback_pkg_update, pkg, daemon=True)

@@ -1,7 +1,7 @@
 """
-    Vortex Download Manager (VDM)
+    Vortex Download Manager (VortexDM)
 
-    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    A multi-connection internet download manager, based on "PycURL" and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
     :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
     :license: GNU GPLv3, see LICENSE.md for more details.
@@ -33,13 +33,13 @@ current_folder = os.path.dirname(fp)
 project_folder = os.path.dirname(os.path.dirname(current_folder))
 build_folder = current_folder
 app_folder = os.path.join(build_folder, APP_NAME)
-icon_path = os.path.join(project_folder, 'icons', 'vdm.ico') # best use size 48, and must be an "ico" format
-version_fp = os.path.join(project_folder, 'vdm', 'version.py')
+icon_path = os.path.join(project_folder, 'icons', 'vortexdm.ico') # best use size 48, and must be an "ico" format
+version_fp = os.path.join(project_folder, 'vortexdm', 'version.py')
 requirements_fp = os.path.join(project_folder, 'requirements.txt')
-main_script_path = os.path.join(project_folder, 'vdm.py')
+main_script_path = os.path.join(project_folder, 'vortexdm.py')
 
 sys.path.insert(0,  project_folder)  # for imports to work
-from vdm.utils import simpledownload, delete_folder, delete_file, create_folder, zip_extract
+from vortexdm.utils import simpledownload, delete_folder, delete_file, create_folder, zip_extract
 
 # create build folder
 create_folder(build_folder)
@@ -52,7 +52,7 @@ with open(version_fp) as f:
 
 # get required packages
 with open(requirements_fp) as f:
-    packages = [line.strip().split(' ')[0] for line in f.readlines() if line.strip()] + ['vdm']
+    packages = [line.strip().split(' ')[0] for line in f.readlines() if line.strip()] + ['vortexdm']
 
 # clean names
 packages = [pkg.replace(';', '') for pkg in packages]
@@ -125,7 +125,7 @@ subprocess.run(cmd, shell=True)
 for fname in (cmd_target_name, gui_target_name):
     fp = os.path.join(app_folder, fname)
     info = {
-        'Comments': 'https://github.com/Sixline/VDM',
+        'Comments': 'https://github.com/Sixline/VortexDM',
         'CompanyName': 'Vortex Download Manager',
         'FileDescription': 'Vortex Download Manager',
         'FileVersion': version,
