@@ -73,10 +73,10 @@ sudo apt install fonts-symbola fonts-linuxlibertine fonts-inconsolata fonts-emoj
 ```
 
 3- Run below code to do the following:
-  a- Clone this repo, 
-  b- Create Python virtual environment,
-  c- Install the requirements,
-  d- Create launch script, 
+  a- Clone this repo,  
+  b- Create Python virtual environment,  
+  c- Install the requirements,  
+  d- Create launch script,  
   e- Run VortexDM.
 
 ```sh
