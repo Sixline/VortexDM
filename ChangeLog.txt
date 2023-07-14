@@ -1,2 +1,6 @@
+2023.1.0
+-Renamed project from VDM to VortexDM
+-Fixed Windows ffmpeg.exe download in controller.py
+
 2022.1.0:
-- Inital release of Vortex Download Manager (VDM) based on FireDM 2022.2.5. Original project, FireDM, by Mahmoud Elshahat.
+- Inital release of Vortex Download Manager (VortexDM) based on FireDM 2022.2.5. Original project, FireDM, by Mahmoud Elshahat.
