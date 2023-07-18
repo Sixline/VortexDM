@@ -1,8 +1,8 @@
 """
-    Vortex Download Manager (VDM)
+    Vortex Download Manager (VortexDM)
 
-    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
-    :copyright: (c) 2022 by Sixline
+    A multi-connection internet download manager, based on "PycURL" and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    :copyright: (c) 2023 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
     :license: GNU GPLv3, see LICENSE.md for more details.
 
@@ -31,8 +31,8 @@ if __package__ is None:
     sys.path.insert(0, os.path.dirname(path))
     sys.path.insert(0, os.path.dirname(os.path.dirname(path)))
 
-    __package__ = 'vdm'
-    import vdm
+    __package__ = 'vortexdm'
+    import vortexdm
 
 from .view import IView
 from .controller import Controller, set_option, get_option, log_runtime_info
@@ -1065,7 +1065,7 @@ class FileDialog:
     def __init__(self, foldersonly=False):
         self.use = 'TK'  #, 'zenity', or 'kdialog'
         self.foldersonly = foldersonly
-        self.title = 'VDM - ' 
+        self.title = 'VortexDM - ' 
         self.title += 'Select a folder' if self.foldersonly else 'Select a file'
         if config.operating_system == 'Linux':
             # looking for zenity
@@ -3164,7 +3164,7 @@ class MainWindow(IView):
 
         # prevent window resize to zero
         self.root.minsize(750, 455)
-        self.root.title(f'VDM ver.{config.APP_VERSION}')
+        self.root.title(f'VortexDM - {config.APP_VERSION}')
         self.main_frame = None
 
         # set window icon
@@ -3182,7 +3182,7 @@ class MainWindow(IView):
         s = ttk.Style()
         s.theme_use('default')
 
-        # apply VDM theme
+        # apply VortexDM theme
         self.apply_theme(config.current_theme)
 
         self.create_main_widgets()
@@ -3214,11 +3214,11 @@ class MainWindow(IView):
         self.post_processors = {}
 
     def ibus_workaround(self):
-        # because of ibus bug, VDM take longer time to load with every run as time goes on, same as 
+        # because of ibus bug, VortexDM take longer time to load with every run as time goes on, same as 
         # any tkinter application.
-        # workaround is to kill ibus-x11 then restart ibus again after VDM finish loading
+        # workaround is to kill ibus-x11 then restart ibus again after VortexDM finish loading
         # reported bug at https://github.com/ibus/ibus/issues/2324
-        # however this workaround makes VDM loads faster, ibus will still affect gui performance when 
+        # however this workaround makes VortexDM loads faster, ibus will still affect gui performance when 
         # it gets restarted again.
         # hope they fix this bug as soon as possible
         p = subprocess.Popen(['ps', '-A'], stdout=subprocess.PIPE, universal_newlines=True)
@@ -3942,7 +3942,7 @@ class MainWindow(IView):
 
         CheckEntryOption(tab, ' Run command:  ', entry_key='on_completion_command').pack(anchor='w', fill='x',
                                                                                          expand=True, padx=(0, 5))
-        CheckOption(tab, ' Exit VDM', key='on_completion_exit').pack(anchor='w', fill='x', expand=True, padx=(0, 5))
+        CheckOption(tab, ' Exit VortexDM', key='on_completion_exit').pack(anchor='w', fill='x', expand=True, padx=(0, 5))
         CheckOption(tab, ' Shutdown computer', key='shutdown_pc').pack(anchor='w', fill='x', expand=True, padx=(0, 5))
 
         separator()
@@ -4048,22 +4048,22 @@ class MainWindow(IView):
             .grid(row=0, column=1, sticky='w')
         tk.Label(update_frame, bg=bg, fg=fg, text='days', padx=5).grid(row=0, column=2, sticky='w')
 
-        # VDM update
-        self.vdm_update_note = tk.StringVar()
-        self.vdm_update_note.set(f'VDM version: {config.APP_VERSION}')
-        lbl(self.vdm_update_note).grid(row=1, column=1, sticky='w', pady=20, padx=20)
+        # VortexDM update
+        self.vortexdm_update_note = tk.StringVar()
+        self.vortexdm_update_note.set(f'VortexDM Version: {config.APP_VERSION}')
+        lbl(self.vortexdm_update_note).grid(row=1, column=1, sticky='w', pady=20, padx=20)
 
         # youtube-dl and yt_dlp
         self.youtube_dl_update_note = tk.StringVar()
-        self.youtube_dl_update_note.set(f'youtube-dl version: {config.youtube_dl_version}')
+        self.youtube_dl_update_note.set(f'youtube-dl Version: {config.youtube_dl_version}')
         lbl(self.youtube_dl_update_note).grid(row=2, column=1, sticky='w', pady=(0, 20), padx=20)
 
         self.yt_dlp_update_note = tk.StringVar()
-        self.yt_dlp_update_note.set(f'yt_dlp version: {config.yt_dlp_version}')
+        self.yt_dlp_update_note.set(f'yt_dlp Version: {config.yt_dlp_version}')
         lbl(self.yt_dlp_update_note).grid(row=3, column=1, sticky='w', pady=(0, 20), padx=20)
 
         if config.FROZEN or config.isappimage:
-            for i, pkg in enumerate(('vdm', 'youtube_dl', 'yt_dlp')):
+            for i, pkg in enumerate(('vortexdm', 'youtube_dl', 'yt_dlp')):
                 Button(update_frame, text='Rollback', command=lambda x=pkg: self.rollback_pkg_update(x),
                        tooltip=f'Restore Previous {pkg} Version',
                        image=imgs['undo_icon']).grid(row=i + 1, column=3, sticky='w', pady=5)
@@ -4796,8 +4796,8 @@ class MainWindow(IView):
     def update_youtube_dl_info(self):
         """write youtube-dl and yt_dlp version once it gets imported"""
 
-        self.youtube_dl_update_note.set(f'youtube-dl version: {config.youtube_dl_version or "Loading ... "}')
-        self.yt_dlp_update_note.set(f'yt_dlp version: {config.yt_dlp_version or "Loading ... "}')
+        self.youtube_dl_update_note.set(f'youtube-dl Version: {config.youtube_dl_version or "Loading ... "}')
+        self.yt_dlp_update_note.set(f'yt_dlp Version: {config.yt_dlp_version or "Loading ... "}')
 
         if not all((config.youtube_dl_version, config.yt_dlp_version)):
             self.root.after(1000, self.update_youtube_dl_info)
@@ -4830,10 +4830,10 @@ class MainWindow(IView):
         log_runtime_info()
 
         # log extra pkgs info
-        log('Tkinter version:', self.root.call("info", "patchlevel"))
-        log('AwesomeTkinter version:', atk_version)
-        log('Pillow version:', PIL.__version__)
-        log('PyCUrl version:', pycurl.version)
+        log('Tkinter Version:', self.root.call("info", "patchlevel"))
+        log('AwesomeTkinter Version:', atk_version)
+        log('Pillow Version:', PIL.__version__)
+        log('PycURL Version:', pycurl.version)
         log()
 
         # get download items
@@ -4895,11 +4895,11 @@ class MainWindow(IView):
 
     @ignore_calls_when_busy
     def show_about_notes(self):
-        res = self.popup(about_notes, buttons=['Home', 'Help!', 'Close'], title='About VDM')
+        res = self.popup(about_notes, buttons=['Home', 'Help!', 'Close'], title='About VortexDM')
         if res == 'Help!':
-            open_webpage('https://github.com/Sixline/VDM/blob/master/docs/user_guide.md')
+            open_webpage('https://github.com/Sixline/VortexDM/blob/master/docs/user_guide.md')
         elif res == 'Home':
-            open_webpage('https://github.com/Sixline/VDM')
+            open_webpage('https://github.com/Sixline/VortexDM')
 
         free_callback(self.show_about_notes)
 

@@ -1,8 +1,8 @@
 """
-    Vortex Download Manager (VDM)
+    Vortex Download Manager (VortexDM)
 
-    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
-    :copyright: (c) 2022 by Sixline
+    A multi-connection internet download manager, based on "PycURL" and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    :copyright: (c) 2023 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
     :license: GNU GPLv3, see LICENSE.md for more details.
 """
@@ -31,20 +31,20 @@ settings_keys = [
 # CONSTANTS
 APP_NAME = 'Vortex Download Manager'
 APP_VERSION = __version__
-APP_TITLE = f'{APP_NAME} version {APP_VERSION} .. an open-source download manager'
+APP_TITLE = f'{APP_NAME} Version {APP_VERSION} .. an open-source download manager'
 
 # minimum segment size used in auto-segmentation process, refer to brain.py>thread_manager.
 SEGMENT_SIZE = 1024 * 100  # 100 KB
 
-APP_URL = 'https://github.com/Sixline/VDM'
-LATEST_RELEASE_URL = 'https://github.com/Sixline/VDM/releases/latest'
+APP_URL = 'https://github.com/Sixline/VortexDM'
+LATEST_RELEASE_URL = 'https://github.com/Sixline/VortexDM/releases/latest'
 
 FROZEN = getattr(sys, "frozen", False)  # check if app is being compiled by cx_freeze
 
 operating_system = platform.system()  # current operating system  ('Windows', 'Linux', 'Darwin')
 
 # Example output: Os: Linux - Platform: Linux-5.11.0-7614-generic-x86_64-with-glibc2.32 - Machine: x86_64
-operating_system_info = f"Os: {platform.system()} - Platform: {platform.platform()} - Machine: {platform.machine()}"
+operating_system_info = f"OS: {platform.system()} - Platform: {platform.platform()} - Machine: {platform.machine()}"
 
 try:
     import distro

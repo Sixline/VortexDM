@@ -4,12 +4,12 @@
 # include only the following
 !docs/
 !docs/*
-!vdm/
-!vdm/*.py
+!vortexdm/
+!vortexdm/*.py
 !ChangeLog.txt
 !contributors.md
 !LICENSE
-!vdm.py
+!vortexdm.py
 !README.md
 !requirements.txt
 !setup.py
@@ -22,6 +22,3 @@
 !scripts/exe_build/exe-quickbuild.py
 !icons/
 !icons/*
-!.github/
-!.github/workflows/
-!.github/workflows/*

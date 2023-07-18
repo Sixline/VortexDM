@@ -1,8 +1,8 @@
 """
-    Vortex Download Manager (VDM)
+    Vortex Download Manager (VortexDM)
 
-    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
-    :copyright: (c) 2022 by Sixline
+    A multi-connection internet download manager, based on "PycURL" and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    :copyright: (c) 2023 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
     :license: GNU GPLv3, see LICENSE.md for more details.
 
@@ -21,12 +21,12 @@ from threading import Event
 from collections import namedtuple
 
 if not __package__:
-    __package__ = 'vdm'
+    __package__ = 'vortexdm'
 
-from vdm.view import IView
-from vdm import utils
-from vdm.utils import format_bytes, format_seconds
-from vdm import config
+from vortexdm.view import IView
+from vortexdm import utils
+from vortexdm.utils import format_bytes, format_seconds
+from vortexdm import config
 
 
 def write(s, end=''):

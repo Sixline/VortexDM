@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-    Vortex Download Manager (VDM)
+    Vortex Download Manager (VortexDM)
 
-    Multi-connection internet download manager, based on "LibCurl", and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
+    A multi-connection internet download manager, based on "PycURL" and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
     :copyright: (c) 2022 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
     :license: GNU GPLv3, see LICENSE.md for more details.
@@ -25,7 +25,7 @@ current_folder = os.path.dirname(fp)
 project_folder = os.path.dirname(os.path.dirname(current_folder))
 sys.path.insert(0,  project_folder)  # for imports to work
 
-from vdm.utils import simpledownload, zip_extract, get_pkg_version
+from vortexdm.utils import simpledownload, zip_extract, get_pkg_version
 
 APP_NAME = 'VortexDM'
 
@@ -35,8 +35,8 @@ app_folder = os.path.join(build_folder, APP_NAME)
 # check for app folder existence, otherwise download latest version from github
 if not os.path.isdir(app_folder):
     print('downloading ', APP_NAME)
-    data = simpledownload('https://api.github.com/repos/Sixline/VDM/releases/latest').decode("utf-8")
-    # example: "browser_download_url": "https://github.com/Sixline/VDM/releases/download/2022.1.0/VortexDM-2022.1.0-win64.zip"
+    data = simpledownload('https://api.github.com/repos/Sixline/VortexDM/releases/latest').decode("utf-8")
+    # example: "browser_download_url": "https://github.com/Sixline/VortexDM/releases/download/2022.1.0/VortexDM-2022.1.0-win64.zip"
     data = json.loads(data)
     assets = data['assets']
 
@@ -60,7 +60,7 @@ if not os.path.isdir(app_folder):
 
     else:
         print('Failed to download latest version, download manually '
-              'from https://github.com/Sixline/VDM/releases/latest')
+              'from https://github.com/Sixline/VortexDM/releases/latest')
         exit(1)
 
 lib_folder = os.path.join(app_folder, 'lib')
@@ -68,9 +68,9 @@ lib_folder = os.path.join(app_folder, 'lib')
 # update packages,  ----------------------------------------------------------------------------------------------------
 print('update packages')
 
-# update vdm pkg
-src_folder = os.path.join(project_folder, 'vdm')
-target_folder = os.path.join(lib_folder, 'vdm')
+# update vortexdm pkg
+src_folder = os.path.join(project_folder, 'vortexdm')
+target_folder = os.path.join(lib_folder, 'vortexdm')
 shutil.rmtree(target_folder, ignore_errors=True)
 shutil.copytree(src_folder, target_folder,  dirs_exist_ok=True)
 
@@ -80,7 +80,7 @@ cmd = f'{sys.executable} -m pip install {" ".join(pkgs)} --upgrade --no-compile 
 subprocess.run(cmd, shell=True)
 
 # get application version ----------------------------------------------------------------------------------------------
-version = get_pkg_version(os.path.join(project_folder, 'vdm'))
+version = get_pkg_version(os.path.join(project_folder, 'vortexdm'))
 
 # edit info for exe files ----------------------------------------------------------------------------------------------
 cmd = f'"{sys.executable}" -m pip install pe_tools'
@@ -89,7 +89,7 @@ subprocess.run(cmd, shell=True)
 for fname in ('vortexdm.exe', 'VortexDM-GUI.exe'):
     fp = os.path.join(app_folder, fname)
     info = {
-        'Comments': 'https://github.com/Sixline/VDM',
+        'Comments': 'https://github.com/Sixline/VortexDM',
         'CompanyName': 'Vortex Download Manager',
         'FileDescription': 'Vortex Download Manager',
         'FileVersion': version,

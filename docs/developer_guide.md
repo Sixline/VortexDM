@@ -1,3 +1,5 @@
+# OUTDATED - ON TO DO LIST TO UPDATE
+
 ### Developer Guide
 
 This Guide for developer who want to contribute or understand how this project work, feel free to improve this guide anytime
