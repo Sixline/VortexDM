@@ -83,7 +83,7 @@ setup(
 
     version=version,
     description=f"{APP_NAME}",
-    author="Sixline - Original project, FireDM, by Mahmoud Elshahat",
+    author="Sixline ; Original project, FireDM, by Mahmoud Elshahat",
     name=APP_NAME,
 
     options={"build_exe": {

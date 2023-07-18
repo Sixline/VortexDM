@@ -2,7 +2,7 @@
     Vortex Download Manager (VortexDM)
 
     A multi-connection internet download manager, based on "PycURL" and "youtube_dl". Original project, FireDM, by Mahmoud Elshahat.
-    :copyright: (c) 2022 by Sixline
+    :copyright: (c) 2023 by Sixline
     :copyright: (c) 2019-2021 by Mahmoud Elshahat.
     :license: GNU GPLv3, see LICENSE.md for more details.
 
@@ -111,7 +111,7 @@ def check_ffmpeg():
         log(msg, log_level=2)
         return True
     else:
-        log(f'can not find ffmpeg!!, install it, or add executable location to PATH, or copy executable to ',
+        log(f'Can not find ffmpeg! Install it, add executable location to PATH, or copy executable to ',
             config.global_sett_folder, 'or', config.current_directory)
 
 
@@ -1016,22 +1016,25 @@ class Controller:
             destination (str): download folder
 
         """
+        import shutil
+        import time
+        import platform
 
         # set download folder
         config.ffmpeg_download_folder = destination
 
         # first check windows 32 or 64
-        import platform
         # ends with 86 for 32 bit and 64 for 64 bit i.e. Win7-64: AMD64 and Vista-32: x86
         if platform.machine().endswith('64'):
             # 64 bit link
             url = 'https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip'
         else:
             # 32 bit - BtbN doesn't auto-build a 32-bit version.
-            log('BtbN doesn\'t auto-build a 32-bit version of FFmpeg.exe. You will need to source a version yourself. :(', showpopup=showpopup)
+            log('BtbN doesn\'t auto-build a 32-bit version of FFmpeg.exe. You will need to source a version yourself. :(', showpopup=True)
             return
 
-        log('Downloading: ', url)
+        log('Downloading ffmpeg, please wait for it to complete.', showpopup=True)
+        log('Downloading: ', url,)
 
         # create a download object, will save ffmpeg in setting folder
         d = ObservableDownloadItem(url=url, folder=config.ffmpeg_download_folder)
@@ -1040,17 +1043,25 @@ class Controller:
 
         self.download(d, silent=False)
 
-        # extract zip, move ffmpeg.exe from extracted folder, delete zip file and extracted folder
-        log('Download done! Extracting and moving ffmpeg.exe...')
         ffmpeg_zip_path = os.path.join(config.ffmpeg_download_folder, 'ffmpeg-master-latest-win64-gpl.zip')
+
+        # check if downloaded zip file exists
+        while not os.path.isfile(ffmpeg_zip_path):
+            log('Waiting for download to complete...')
+            time.sleep(3)
+
+        # extract zip, move ffmpeg.exe from extracted folder, delete zip file and extracted folder
+        
+        log('Download done! Extracting and moving ffmpeg.exe...')
+        
         ffmpeg_extract_path = os.path.join(config.ffmpeg_download_folder, 'ffmpeg-master-latest-win64-gpl')
         ffmpeg_path = os.path.join(ffmpeg_extract_path, 'ffmpeg-master-latest-win64-gpl', 'bin', 'ffmpeg.exe')
         zip_extract(z_fp=ffmpeg_zip_path, extract_folder=ffmpeg_extract_path)
-        shutil.copy(ffmpeg_path, os.path.join(config.ffmpeg_download_folder, 'ffmpeg.exe'))
+        shutil.move(ffmpeg_path, os.path.join(config.ffmpeg_download_folder, 'ffmpeg.exe'))
         log('Cleaning up...')
         delete_folder(ffmpeg_extract_path, verbose=True)
         delete_file(ffmpeg_zip_path, verbose=True)
-        log('ffmpeg.exe downloaded!', showpopup=showpopup)
+        log('ffmpeg.exe downloaded! Retry your download.', showpopup=True)
 
     def autodownload(self, url, **kwargs):
         """download file automatically without user intervention
