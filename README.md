@@ -139,10 +139,13 @@ recommended fonts to be installed.
 - [Pillow](https://python-pillow.org): the friendly PIL fork. PIL is an acronym for Python Imaging Library.
 - [pystray](https://github.com/moses-palmer/pystray): for systray icon.
 
-**Note for PycURL:**
+> [!NOTE]
+> PycURL 7.45.3 - 2024-02-17 - Windows binary wheels are now available.
+
+~~**Note for PycURL:**
 For Windows users who wants to run from source or use pip:
 Unfortunately, PycURL removed binary versions for Windows and it now has to be built from source. See here: http://pycurl.io/docs/latest/install.html#windows
-`python -m pip install pycurl` will fail on Windows, your best choice is to use the portable version.
+`python -m pip install pycurl` will fail on Windows, your best choice is to use the portable version.~~
 
 # How to contribute to this project:
 1- By testing the application and opening [new issues](https://github.com/Sixline/VortexDM/issues/new) for bugs, feature requests, or suggestions.
